@@ -1,15 +1,20 @@
-import './styles/index.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { useTheme } from 'app/providers/ThemeProvider'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { FC, Suspense } from 'react'
+import { FC, Suspense, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { userActions } from 'entities/User'
 import { AppRouter } from './providers/Router'
 
 const App: FC = () => {
-  const { theme } = useTheme()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(userActions.initAuthData())
+  }, [dispatch])
+
   return (
-    <div className={classNames('app', { hovered: true }, [theme])}>
+    <div className={classNames('app', { hovered: true }, [])}>
       <Suspense fallback={null}>
         <Navbar />
         <div className="content_page">

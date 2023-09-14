@@ -21,7 +21,6 @@ export const Sidebar: FC<SidebarTypes> = (props) => {
   const onToggle = () => {
     setCollapsed(val => !val)
   }
-
   return (
     <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
       <div className={cls.items}>
