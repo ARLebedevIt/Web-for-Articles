@@ -1,7 +1,7 @@
-import { StateSchema } from './config/StateSchema'
+import { StateSchema, ReduxStoreWithManager } from './config/StateSchema'
 import { StoreProvider } from './ui/StoreProvider'
-import { createReduxStore } from './config/store'
+import { createReduxStore, AppDispatch } from './config/store'
 
 export {
-  StoreProvider, createReduxStore, StateSchema,
+  StoreProvider, createReduxStore, StateSchema, ReduxStoreWithManager, AppDispatch,
 }

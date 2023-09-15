@@ -1,5 +1,5 @@
 export interface User {
-  id: StringConstructor
+  id: string;
   username: string
 }
 

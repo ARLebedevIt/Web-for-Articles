@@ -20,13 +20,14 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
     }),
   ]
 
-  // [isDev && new ReactRefreshWebpackPlugin()].filter(Boolean),
-
   if (isDev) {
+    plugins.push(new webpack.HotModuleReplacementPlugin())
     plugins.push(new BundleAnalyzerPlugin({
       openAnalyzer: false,
     }))
   }
+
+  // [isDev && new ReactRefreshWebpackPlugin()].filter(Boolean),
 
   return plugins
 }

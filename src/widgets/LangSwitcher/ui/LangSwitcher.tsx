@@ -1,13 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/ui/Button'
 import { useTranslation } from 'react-i18next'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 interface LangSwitcherType {
   className?: string
 }
 
-export const LangSwitcher: FC<LangSwitcherType> = ({ className }) => {
+export const LangSwitcher = memo(({ className }: LangSwitcherType) => {
   const { t, i18n } = useTranslation()
 
   const currentLang = i18n.language === 'ru' ? 'en' : 'ru'
@@ -24,4 +24,4 @@ export const LangSwitcher: FC<LangSwitcherType> = ({ className }) => {
       {currentLang.toUpperCase()}
     </Button>
   )
-}
+})

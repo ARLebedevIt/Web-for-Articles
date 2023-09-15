@@ -1,10 +1,10 @@
 import { BugButton } from 'app/providers/ErrorBoundary'
-import React from 'react'
+import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 type Props = {}
 
-const MainPage = (props: Props) => {
+const MainPage = memo((props: Props) => {
   const { t } = useTranslation()
   return (
     <div>
@@ -12,6 +12,6 @@ const MainPage = (props: Props) => {
       <BugButton />
     </div>
   )
-}
+})
 
 export default MainPage

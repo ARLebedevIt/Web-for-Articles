@@ -1,23 +1,20 @@
-import React, { FC, useState } from 'react'
+import React, { FC, memo, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ThemeSwither } from 'widgets/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/ui/Button'
 import { useTranslation } from 'react-i18next'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/ui/AppLink'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import MainIcon from 'shared/assets/icons/main.svg'
-import AboutIcon from 'shared/assets/icons/about.svg'
+import { SidbarItemsList } from 'widgets/Sidebar/model/items'
 import cls from './Sidebar.module.scss'
+import { SidebarItem } from '../SidebarItem/SidebarItem'
 
 type SidebarTypes = {
   className?: string
 }
 
-export const Sidebar: FC<SidebarTypes> = (props) => {
+export const Sidebar = memo((props: SidebarTypes) => {
   const { className } = props
   const [collapsed, setCollapsed] = useState(false)
-  const { t } = useTranslation()
   const onToggle = () => {
     setCollapsed(val => !val)
   }
@@ -25,15 +22,9 @@ export const Sidebar: FC<SidebarTypes> = (props) => {
     <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
       <div className={cls.items}>
 
-        <AppLink className={cls.item} theme={AppLinkTheme.INVERTED} to={RoutePath.main}>
-          <MainIcon className={cls.icon} />
-          <span className={cls.link}>{t('Главная')}</span>
-        </AppLink>
-
-        <AppLink className={cls.item} theme={AppLinkTheme.INVERTED} to={RoutePath.about}>
-          <AboutIcon className={cls.icon} />
-          <span className={cls.link}>{t('О сайте')}</span>
-        </AppLink>
+        {SidbarItemsList.map(item => (
+          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+        ))}
 
       </div>
       <Button
@@ -53,4 +44,4 @@ export const Sidebar: FC<SidebarTypes> = (props) => {
       </div>
     </div>
   )
-}
+})
