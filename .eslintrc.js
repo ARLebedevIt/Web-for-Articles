@@ -24,7 +24,7 @@ module.exports = {
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
-    'no-unused-vars': 'warn',
+    'no-unused-vars': ['warn', { args: 'none' }],
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'warn',
@@ -39,11 +39,12 @@ module.exports = {
     'no-console': 'off',
     'arrow-parens': [2, 'as-needed', { requireForBlockBody: true }],
     'arrow-body-style': 0,
+    'no-undef': 'off',
     'i18next/no-literal-string': [
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'to'],
+        ignoreAttribute: ['data-testid', 'to', 'alt', 'label'],
       },
     ],
     'max-len': ['error', { ignoreComments: true, code: 120 }],
@@ -55,6 +56,7 @@ module.exports = {
   },
   globals: {
     __IS_DEV__: true,
+    __API__: true,
   },
   overrides: [
     {

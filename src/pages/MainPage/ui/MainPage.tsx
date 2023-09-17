@@ -2,9 +2,9 @@ import { BugButton } from 'app/providers/ErrorBoundary'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-type Props = {}
+type MainPageType = {}
 
-const MainPage = memo((props: Props) => {
+const MainPage = memo((props: MainPageType) => {
   const { t } = useTranslation()
   return (
     <div>

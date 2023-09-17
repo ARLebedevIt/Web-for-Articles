@@ -9,7 +9,6 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
   let combinedReducer = combineReducers(reducers)
 
   let keysToRemove: StateSchemaKey[] = []
-
   return {
     getReducerMap: () => reducers,
 

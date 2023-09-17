@@ -1,14 +1,15 @@
 import React, {
   ButtonHTMLAttributes, FC, ReactNode, memo,
 } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { Mods, classNames } from 'shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
 export enum ButtonTheme {
   CLEAR = 'clear',
   OUTLINE = 'outline',
   BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted'
+  BACKGROUND_INVERTED = 'backgroundInverted',
+  OUTLINE_RED = 'outline_red',
 }
 
 export enum ButtonSize {
@@ -28,10 +29,10 @@ export interface ButtonTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = memo((props: ButtonTypes) => {
   const {
-    children, className, theme, square, size, disabled, ...otherProps
+    children, className, theme = ButtonTheme.OUTLINE, square, size = ButtonSize.M, disabled, ...otherProps
   } = props
 
-  const mods = {
+  const mods: Mods = {
     [cls.square]: square,
     [cls.disabled]: disabled,
   }
