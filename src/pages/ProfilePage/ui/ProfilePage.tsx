@@ -1,6 +1,6 @@
 import {
   ProfileCard, fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading,
-  getProfileReadOnly, profileActions, profileReducer,
+  getProfileReadOnly, getProfileValidateErrors, profileActions, profileReducer,
 } from 'entities/Profile'
 import React, { memo, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -10,8 +10,12 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
+import { Text, TextTheme } from 'shared/ui/Text/ui/Text'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { useParams } from 'react-router-dom'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import cls from './ProfilePage.module.scss'
+import { ValidateProfileError } from '..'
 
 type Props = {}
 
@@ -26,9 +30,22 @@ const ProfilePage = memo((props: Props) => {
   const error = useSelector(getProfileError)
   const isLoading = useSelector(getProfileIsLoading)
   const readOnly = useSelector(getProfileReadOnly)
-  useEffect(() => {
-    dispatch(fetchProfileData())
-  }, [dispatch])
+  const validateErrors = useSelector(getProfileValidateErrors)
+  const { id } = useParams<{id: string}>()
+
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении профиля'),
+    [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны к заполнению'),
+    [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+  }
+
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id))
+    }
+  })
 
   const onChangeFirstName = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ first: value || '' }))
@@ -66,6 +83,9 @@ const ProfilePage = memo((props: Props) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.ProfilePage, {}, [])}>
         <ProfilePageHeader />
+        {validateErrors?.length && validateErrors?.map(err => (
+          <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslates[err]} />
+        ))}
         <ProfileCard
           onChangeAge={onChangeAge}
           onChangeCity={onChangeCity}

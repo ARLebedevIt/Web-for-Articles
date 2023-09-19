@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Mods, classNames } from 'shared/lib/classNames/classNames'
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/ui/Text'
-import { Button, ButtonTheme } from 'shared/ui/Button/ui/Button'
 import { Input } from 'shared/ui/Input/ui/Input'
 import Loader from 'shared/ui/Loader/ui/Loader'
 import { Avatar } from 'shared/ui/Avatar/Avatar'

@@ -1,2 +1,2 @@
 export { Country } from './model/types/country'
-export { CountrySelect } from './ui/CountrySelect/CounrySelect.stories'
+export { CountrySelect } from './ui/CountrySelect/CountrySelect'

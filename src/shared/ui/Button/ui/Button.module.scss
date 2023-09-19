@@ -3,6 +3,12 @@
   color: var(--primary-color);
   font-size: 16px;
   padding: 6px 15px;
+  
+  &:hover {
+    opacity: .7;
+    fill-opacity: .7;
+    stroke-opacity: .7;
+  }
 }
 
 .clear {

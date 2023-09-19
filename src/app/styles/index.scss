@@ -2,6 +2,7 @@
 @import 'themes/dark';
 @import 'themes/default';
 @import 'variables/global';
+@import 'themes/crimson';
 
 body {
 	font: var(--font-m);
@@ -20,4 +21,7 @@ body {
 .page_wrapper {
 	flex-grow: 1;
 	padding: 20px;
+	height: calc(100dvh - var(--navbar-height));
+	overflow-y: auto;
+	width: 100%;
 }

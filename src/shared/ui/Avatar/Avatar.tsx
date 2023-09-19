@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Avatar.module.scss'
 
 type AvatarType = {
-  src: string
+  src?: string
   className?: string
   size?: number
 }

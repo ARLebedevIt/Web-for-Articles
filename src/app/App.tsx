@@ -2,14 +2,14 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { FC, Suspense, useEffect } from 'react'
-import { userActions } from 'entities/User'
+import { getUserInited, userActions } from 'entities/User'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { AppRouter } from './providers/Router'
 
 const App: FC = () => {
   const dispatch = useAppDispatch()
-  const navigate = useNavigate()
+  const inited = useSelector(getUserInited)
   useEffect(() => {
     dispatch(userActions.initAuthData())
   }, [dispatch])
@@ -19,7 +19,7 @@ const App: FC = () => {
         <Navbar />
         <div className="content_page">
           <Sidebar />
-          <AppRouter />
+          {inited && <AppRouter />}
         </div>
       </Suspense>
     </div>
