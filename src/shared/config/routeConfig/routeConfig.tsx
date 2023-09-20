@@ -5,6 +5,8 @@ import { MainPage } from 'pages/MainPage'
 import { NotFoundPage } from 'pages/NotFoundPage'
 import { ProfilePage } from 'pages/ProfilePage'
 import { RouteProps } from 'react-router-dom'
+import Loader from 'shared/ui/Loader/ui/Loader'
+import { PageLoader } from 'widgets/PageLoader'
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean

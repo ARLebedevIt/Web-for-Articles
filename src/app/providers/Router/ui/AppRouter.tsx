@@ -8,11 +8,11 @@ type Props = {}
 
 const AppRouter = (props: Props) => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
-    const element = <div className="page_wrapper">{route.element}</div>
+    const element = <div>{route.element}</div>
     return (
       <Route
         key={route.path}
-        element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+        element={route.authOnly ? <RequireAuth>{route.element}</RequireAuth> : element}
         path={route.path}
       />
     )

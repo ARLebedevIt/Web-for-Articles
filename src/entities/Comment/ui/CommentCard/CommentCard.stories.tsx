@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Article, ArticleBlockType, ArticleСategoryType } from 'entities/Article/model/types/article'
+import { Article, ArticleBlockType, ArticleCategoryType } from 'entities/Article/model/types/article'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { action } from '@storybook/addon-actions'
 import { Theme } from 'app/providers/ThemeProvider'
@@ -21,7 +21,7 @@ export const Primary: Story = {
     comment: {
       id: '1',
       text: 'comment 1',
-      user: { id: '1', username: 'user 1' },
+      user: { id: '1', username: 'user 1', avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png' },
     },
   },
   decorators: [ThemeDecorator(Theme.LIGHT)],
@@ -32,7 +32,7 @@ export const Dark: Story = {
     comment: {
       id: '1',
       text: 'comment 1',
-      user: { id: '1', username: 'user 1' },
+      user: { id: '1', username: 'user 1', avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png' },
     },
   },
   decorators: [ThemeDecorator(Theme.DARK)],
@@ -43,7 +43,7 @@ export const Crimson: Story = {
     comment: {
       id: '1',
       text: 'comment 1',
-      user: { id: '1', username: 'user 1' },
+      user: { id: '1', username: 'user 1', avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png' },
     },
   },
   decorators: [ThemeDecorator(Theme.CRIMSON)],
@@ -55,7 +55,7 @@ export const LoadingCard: Story = {
     comment: {
       id: '1',
       text: 'comment 1',
-      user: { id: '1', username: 'user 1' },
+      user: { id: '1', username: 'user 1', avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png' },
     },
   },
   decorators: [ThemeDecorator(Theme.CRIMSON)],

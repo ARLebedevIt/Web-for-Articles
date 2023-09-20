@@ -1,4 +1,4 @@
-import { Article, ArticleСategoryType } from 'entities/Article/model/types/article'
+import { Article, ArticleCategoryType } from 'entities/Article/model/types/article'
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk'
 import { fetchArticleById } from './fetchArticleById'
 import { ArticleBlockType } from '../../types/article'
@@ -10,7 +10,11 @@ const article: Article = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
-  category: [ArticleСategoryType.IT],
+  user: {
+    id: '1',
+    username: 'user',
+  },
+  category: [ArticleCategoryType.IT],
   blocks: [
     {
       id: '1',

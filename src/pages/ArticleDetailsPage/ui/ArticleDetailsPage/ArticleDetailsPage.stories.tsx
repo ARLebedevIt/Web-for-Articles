@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Article, ArticleBlockType, ArticleСategoryType } from 'entities/Article/model/types/article'
+import { Article, ArticleBlockType, ArticleCategoryType } from 'entities/Article/model/types/article'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import ArticleDetailsPage from './ArticleDetailsPage'
 
@@ -20,7 +20,11 @@ const article: Article = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
-  category: [ArticleСategoryType.IT],
+  user: {
+    id: '1',
+    username: 'user',
+  },
+  category: [ArticleCategoryType.IT],
   blocks: [
     {
       id: '1',

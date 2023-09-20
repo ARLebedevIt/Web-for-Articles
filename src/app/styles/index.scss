@@ -17,11 +17,3 @@ body {
 .content_page {
 	display: flex;
 }
-
-.page_wrapper {
-	flex-grow: 1;
-	padding: 20px;
-	height: calc(100dvh - var(--navbar-height));
-	overflow-y: auto;
-	width: 100%;
-}

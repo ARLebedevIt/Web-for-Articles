@@ -9,8 +9,6 @@ export type ReducersList = {
   [name in StateSchemaKey]?: Reducer;
 }
 
-type ReducersListEntry = [StateSchemaKey, Reducer]
-
 interface DynamicModuleLoaderType {
   reducers: ReducersList
   removeAfterUnmount?: boolean
@@ -26,9 +24,14 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderType> = (props) => {
   const store = useStore() as ReduxStoreWithManager
   const dispatch = useAppDispatch()
   useEffect(() => {
+    const mountedReducers = store.reducerManager.getReducerMap()
     Object.entries(reducers).forEach(([name, reducer]) => {
-      store.reducerManager.add(name as StateSchemaKey, reducer)
-      dispatch({ type: `@INIT ${name} reducer` })
+      const mounted = mountedReducers[name as StateSchemaKey]
+      // Инициализация редюсера только если он ещё не был вмонтирован
+      if (!mounted) {
+        store.reducerManager.add(name as StateSchemaKey, reducer)
+        dispatch({ type: `@INIT ${name} reducer` })
+      }
     })
     return () => {
       if (removeAfterUnmount) {

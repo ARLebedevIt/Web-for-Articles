@@ -1,4 +1,4 @@
-import { ArticleBlockType, ArticleСategoryType } from 'entities/Article/model/types/article'
+import { ArticleBlockType, ArticleCategoryType } from 'entities/Article/model/types/article'
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema'
 import { articleDetailsReducer } from './articleSlice'
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById'
@@ -10,8 +10,12 @@ const article: Article = {
   subtitle: 'Что нового в JS за 2022 год?',
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
+  user: {
+    id: '1',
+    username: 'user',
+  },
   createdAt: '26.02.2022',
-  category: [ArticleСategoryType.IT],
+  category: [ArticleCategoryType.IT],
   blocks: [
     {
       id: '1',

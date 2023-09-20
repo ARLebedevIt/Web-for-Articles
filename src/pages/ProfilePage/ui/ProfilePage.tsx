@@ -13,6 +13,7 @@ import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/ui/Text'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useParams } from 'react-router-dom'
+import { Page } from 'widgets/Page/Page'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import cls from './ProfilePage.module.scss'
 import { ValidateProfileError } from '..'
@@ -81,9 +82,9 @@ const ProfilePage = memo((props: Props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ProfilePage, {}, [])}>
+      <Page className={classNames(cls.ProfilePage, {}, [])}>
         <ProfilePageHeader />
-        {validateErrors?.length && validateErrors?.map(err => (
+        {Boolean(validateErrors?.length) && validateErrors?.map(err => (
           <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslates[err]} />
         ))}
         <ProfileCard
@@ -100,7 +101,7 @@ const ProfilePage = memo((props: Props) => {
           onChangeCurrency={onChangeCurrency}
           onChangeCountry={onChangeCountry}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   )
 })

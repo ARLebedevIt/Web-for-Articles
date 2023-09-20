@@ -23,7 +23,6 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<Val
       if (!response.data) {
         throw new Error()
       }
-
       return response.data
     } catch (e) {
       console.log(e)
