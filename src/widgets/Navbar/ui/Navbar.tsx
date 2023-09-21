@@ -6,6 +6,9 @@ import { LoginModal } from 'features/AuthByUserName'
 import { useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { Text, TextTheme } from 'shared/ui/Text/ui/Text'
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/ui/AppLink'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import cls from './Navbar.module.scss'
 
 interface NavbarProps {
@@ -34,13 +37,17 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
-        <Button
-          onClick={onLogout}
-          className={cls.links}
-          theme={ButtonTheme.BACKGROUND_INVERTED}
+        <Text theme={TextTheme.INVERTED} className={cls.appName} title={t('Article app')} />
+        <div className={cls.navigation}>
+          <AppLink theme={AppLinkTheme.INVERTED} to={RoutePath.article_create}>{t('Создать статью')}</AppLink>
+          <Button
+            onClick={onLogout}
+            className={cls.links}
+            theme={ButtonTheme.BACKGROUND_INVERTED}
         >
-          {t('Выйти')}
-        </Button>
+            {t('Выйти')}
+          </Button>
+        </div>
       </header>
     )
   }
@@ -49,7 +56,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     <header className={classNames(cls.Navbar, {}, [className])}>
       <Button
         onClick={onOpenModal}
-        className={cls.links}
         theme={ButtonTheme.BACKGROUND_INVERTED}
       >
         {t('Войти')}

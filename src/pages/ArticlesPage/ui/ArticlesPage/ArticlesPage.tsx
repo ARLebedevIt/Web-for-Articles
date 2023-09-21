@@ -10,6 +10,7 @@ import { ArticleViewSelector } from 'features/ArticleViewSelector'
 import { Page } from 'widgets/Page/Page'
 import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 import { Text } from 'shared/ui/Text/ui/Text'
+import { useSearchParams } from 'react-router-dom'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import {
   getArticlesPageError,
@@ -18,6 +19,7 @@ import {
   from '../../model/selectors/articlesPageSelector'
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice'
 import cls from './ArticlesPage.module.scss'
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 
 type ArticlesPageProps = {
   className?: string,
@@ -34,19 +36,14 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading)
   const error = useSelector(getArticlesPageError)
   const view = useSelector(getArticlesPageView)
-  const page = useSelector(getArticlesPageNum)
-  const hasMore = useSelector(getArticlesPageHasMore)
+  const [searchParams] = useSearchParams()
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage())
+    dispatch(initArticlesPage(searchParams))
   })
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage())
-  }, [dispatch])
-
-  const onChangeView = useCallback((view: ArticleView) => {
-    dispatch(articlesPageActions.setView(view))
   }, [dispatch])
 
   if (error) {
@@ -58,8 +55,9 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
-        <ArticleViewSelector onViewClick={onChangeView} view={view} />
+        <ArticlesPageFilters />
         <ArticleList
+          className={cls.list}
           isLoading={isLoading}
           view={view}
           articles={articles}

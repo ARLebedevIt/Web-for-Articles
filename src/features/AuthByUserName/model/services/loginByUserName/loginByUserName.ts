@@ -28,7 +28,6 @@ export const loginByUserName = createAsyncThunk<User, LoginByUsernameProps, Thun
       // extra.navigate?.('/profile')
       return response.data
     } catch (e) {
-      console.log(e)
       return rejectWithValue('error')
     }
   },

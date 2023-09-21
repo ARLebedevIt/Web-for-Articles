@@ -2,12 +2,23 @@
   width: 100%;
   height: var(--navbar-height);
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   background-color: var(--inverted-bg-color);
 }
 
-.links {
+.navigation {
   display: flex;
-  gap: 20px;
+  align-items: center;
+
+  //  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.links {
+  margin-left: auto;
+}
+
+.appName {
+  padding-left: 40px;
+  width: var(--sidebar-width);
 }

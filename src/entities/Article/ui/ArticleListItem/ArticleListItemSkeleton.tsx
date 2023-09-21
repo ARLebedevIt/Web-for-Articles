@@ -1,13 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames'
-import { Text } from 'shared/ui/Text/ui/Text'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
-import { Button, ButtonTheme } from 'shared/ui/Button/ui/Button'
-import { memo, useCallback } from 'react'
+import { memo } from 'react'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { ArticleView } from 'entities/Article/model/types/article'
 import { Card } from 'shared/ui/Card/Card'
 import cls from './ArticleListItem.module.scss'
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 
 type ArticleListItemSkeletonProps = {
   className?: string

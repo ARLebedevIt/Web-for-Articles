@@ -7,9 +7,9 @@ import { ProfileSchema } from 'entities/Profile'
 import { UserSchema } from 'entities/User'
 import { LoginSchema } from 'features/AuthByUserName'
 import { AddComentFormShema } from 'features/addCommentForm'
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
+import { ArticleDetailsPageSchema }
+  from 'pages/ArticleDetailsPage'
 import { ArticlesPageSchema } from 'pages/ArticlesPage'
-import { NavigateOptions, To } from 'react-router-dom'
 import { ScrollPositionSaverSchema } from 'widgets/ScrollPositionSaver'
 
 export interface StateSchema {
@@ -19,9 +19,11 @@ export interface StateSchema {
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
-  articleDetailsComments?: ArticleDetailsCommentsSchema
+  // articleDetailsComments?: ArticleDetailsCommentsSchema
   addCommentForm?: AddComentFormShema
   articlesPage?: ArticlesPageSchema
+  // articleDetailsRecommendations?: ArticleDetailsPageRecommendationsSchema
+  articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

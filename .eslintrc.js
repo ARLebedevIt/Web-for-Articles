@@ -38,13 +38,13 @@ module.exports = {
     semi: ['warn', 'never'],
     'no-console': 'off',
     'arrow-parens': [2, 'as-needed', { requireForBlockBody: true }],
-    'arrow-body-style': 0,
+    'arrow-body-style': 'off',
     'no-undef': 'off',
     'i18next/no-literal-string': [
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'to', 'alt', 'label'],
+        ignoreAttribute: ['data-testid', 'to', 'alt', 'label', 'target'],
       },
     ],
     'max-len': ['error', { ignoreComments: true, code: 120 }],
@@ -54,6 +54,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'no-param-reassign': 'off',
     'react/no-array-index-key': 'off',
+    'react/jsx-closing-bracket-location': 'off',
   },
   globals: {
     __IS_DEV__: true,

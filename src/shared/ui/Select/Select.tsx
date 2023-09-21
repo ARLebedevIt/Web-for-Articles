@@ -1,22 +1,22 @@
-import React, { ChangeEvent, memo, useMemo } from 'react'
+import React, { ChangeEvent, useMemo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Select.module.scss'
 
-export interface SelectOptions {
-  value: string
+export interface SelectOptions<T extends string> {
+  value: T
   content: string
 }
 
-type SelectType = {
+type SelectType<T extends string> = {
   className?: string
   label?: string
-  options?: SelectOptions[]
-  value?: string
-  onChange?: (value: string) => void
+  options?: SelectOptions<T>[]
+  value?: T
+  onChange?: (value: T) => void
   readonly?: boolean
 }
 
-export const Select = memo((props: SelectType) => {
+export const Select = <T extends string> (props: SelectType<T>) => {
   const {
     className, label, options, value, onChange, readonly,
   } = props
@@ -32,7 +32,7 @@ export const Select = memo((props: SelectType) => {
   }, [options])
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value)
+    onChange?.(e.target.value as T)
   }
   return (
     <div className={classNames(cls.Wrapper, {}, [className])}>
@@ -44,4 +44,4 @@ export const Select = memo((props: SelectType) => {
       </select>
     </div>
   )
-})
+}

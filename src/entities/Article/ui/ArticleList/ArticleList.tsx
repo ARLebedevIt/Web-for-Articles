@@ -1,5 +1,7 @@
-import React, { memo } from 'react'
+import React, { HTMLAttributeAnchorTarget, memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { Text, TextSize } from 'shared/ui/Text/ui/Text'
+import { useTranslation } from 'react-i18next'
 import { Article, ArticleView } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import cls from './ArticleList.module.scss'
@@ -10,6 +12,7 @@ type ArticleListProps = {
   articles: Article[]
   isLoading?: boolean
   view?: ArticleView
+  target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -17,16 +20,16 @@ const getSkeletons = (view: ArticleView) => {
     new Array(view === ArticleView.GRID ? 18 : 3)
       .fill(0)
       .map((_, idx) => (
-        <ArticleListItemSkeleton key={idx} view={view} />
+        <ArticleListItemSkeleton className={cls.card} key={idx} view={view} />
       ))
   )
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
-    articles, className, isLoading, view = ArticleView.GRID,
+    articles, className, target, isLoading, view = ArticleView.GRID,
   } = props
-
+  const { t } = useTranslation()
   // if (isLoading) {
   //   return (
   //     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
@@ -38,11 +41,20 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const renderArticle = (article: Article) => {
     return (
       <ArticleListItem
+        target={target}
         key={article.id}
-        className={classNames(cls.card, {}, [className])}
+        className={cls.card}
         article={article}
         view={view}
       />
+    )
+  }
+
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <Text size={TextSize.L} title={t('Статьи не найдены')} />
+      </div>
     )
   }
 
