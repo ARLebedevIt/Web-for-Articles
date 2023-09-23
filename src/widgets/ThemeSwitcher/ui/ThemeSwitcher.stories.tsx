@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeSwither } from './ThemeSwither'
 
 const meta = {
-  title: 'widget/ThemeSwither',
+  title: 'widgets/ThemeSwither',
   component: ThemeSwither,
   tags: ['autodocs'],
 } satisfies Meta<typeof ThemeSwither>

@@ -3,18 +3,20 @@ import {
 } from '@reduxjs/toolkit'
 import { AxiosInstance } from 'axios'
 import { ArticleDetailsSchema } from 'entities/Article'
-import { ProfileSchema } from 'entities/Profile'
 import { UserSchema } from 'entities/User'
 import { LoginSchema } from 'features/AuthByUserName'
 import { AddComentFormShema } from 'features/addCommentForm'
+import { ProfileSchema } from 'features/editableProfileCard'
 import { ArticleDetailsPageSchema }
   from 'pages/ArticleDetailsPage'
 import { ArticlesPageSchema } from 'pages/ArticlesPage'
+import { rtkApi } from 'shared/api/rtkApi'
 import { ScrollPositionSaverSchema } from 'widgets/ScrollPositionSaver'
 
 export interface StateSchema {
   user: UserSchema
   scrollPositionSaver: ScrollPositionSaverSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>,
   // Async Reducers
   loginForm?: LoginSchema
   profile?: ProfileSchema

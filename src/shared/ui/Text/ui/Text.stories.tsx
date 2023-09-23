@@ -78,3 +78,11 @@ export const WithSizeM: Story = {
     size: TextSize.M,
   },
 }
+
+export const WithSizeS: Story = {
+  args: {
+    text: 'Lorem ipsum dolor sit amet.',
+    title: 'Lorem ipsum dolor sit amet consectetur.',
+    size: TextSize.S,
+  },
+}

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import {
-  Article, ArticleBlockType, ArticleView, ArticleCategoryType,
-} from 'entities/Article/model/types/article'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
+import {
+  Article, ArticleBlockType, ArticleView, ArticleCategoryType,
+} from '../../model/types/article'
 import { ArticleList } from './ArticleList'
 
 const meta = {

@@ -9,6 +9,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Text, TextTheme } from 'shared/ui/Text/ui/Text'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/ui/AppLink'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 import cls from './Navbar.module.scss'
 
 interface NavbarProps {
@@ -40,13 +42,21 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <Text theme={TextTheme.INVERTED} className={cls.appName} title={t('Article app')} />
         <div className={cls.navigation}>
           <AppLink theme={AppLinkTheme.INVERTED} to={RoutePath.article_create}>{t('Создать статью')}</AppLink>
-          <Button
-            onClick={onLogout}
+          <Dropdown
+            direction="bottom left"
+            trigger={<Avatar size={30} src={authData.avatar} />}
+            items={[
+              {
+                content: t('Профиль'),
+                href: RoutePath.profile + authData.id,
+              },
+              {
+                content: t('Выйти'),
+                onClick: onLogout,
+              },
+            ]}
             className={cls.links}
-            theme={ButtonTheme.BACKGROUND_INVERTED}
-        >
-            {t('Выйти')}
-          </Button>
+          />
         </div>
       </header>
     )

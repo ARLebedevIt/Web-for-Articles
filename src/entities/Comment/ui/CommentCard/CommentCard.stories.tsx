@@ -1,7 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Article, ArticleBlockType, ArticleCategoryType } from 'entities/Article/model/types/article'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-import { action } from '@storybook/addon-actions'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { CommentCard } from './CommentCard'

@@ -1,4 +1,4 @@
-import { ArticleBlockType, ArticleCategoryType } from 'entities/Article/model/types/article'
+import { ArticleBlockType, ArticleCategoryType } from '../../model/types/article'
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema'
 import { articleDetailsReducer } from './articleSlice'
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById'

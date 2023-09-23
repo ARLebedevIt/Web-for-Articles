@@ -11,7 +11,7 @@ const BugButton = () => {
 
   useEffect(() => {
     if (error) {
-      throw new Error()
+      throw new Error('Тестовая ошибка')
     }
   }, [error])
 

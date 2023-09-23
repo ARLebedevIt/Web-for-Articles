@@ -12,8 +12,9 @@
   flex-grow: 1;
 }
 
-.links {
+.links, .dropdown {
   margin-left: auto;
+  padding-right: 16px;
 }
 
 .appName {

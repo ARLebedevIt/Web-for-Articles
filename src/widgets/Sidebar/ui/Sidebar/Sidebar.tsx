@@ -1,11 +1,10 @@
-import React, {
-  FC, memo, useMemo, useState,
-} from 'react'
+import React, { memo, useMemo, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ThemeSwither } from 'widgets/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/ui/Button'
 import { useSelector } from 'react-redux'
+import { VStack } from 'shared/ui/Stack/VStack/VStack'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 import cls from './Sidebar.module.scss'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
@@ -27,10 +26,10 @@ export const Sidebar = memo((props: SidebarTypes) => {
   )), [collapsed, sidbarItemsList])
 
   return (
-    <menu data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-      <div className={cls.items}>
+    <aside data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+      <VStack role="navigation" gap="16" className={cls.items}>
         {sidebarList}
-      </div>
+      </VStack>
       <Button
         className={cls.collapseBtn}
         data-testid="sidebar_toggle"
@@ -46,6 +45,6 @@ export const Sidebar = memo((props: SidebarTypes) => {
         <ThemeSwither />
         <LangSwitcher />
       </div>
-    </menu>
+    </aside>
   )
 })

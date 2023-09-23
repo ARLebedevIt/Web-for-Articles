@@ -10,8 +10,9 @@
 
 .placeholder {
   padding-right: 10px;
+  color: var(--secondary-color);
 }
 
 .readOnly {
-  opacity: 0.7;
-}
+  opacity: .8;
+} // !!  пофиксить прозрачность!!

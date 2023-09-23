@@ -15,7 +15,8 @@
     "lint:SCSS": "npx stylelint \"**/*.scss\"",
     "lint:SCSS:fix": "npx stylelint \"**/*.scss\" --fix",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build -c ./config/storybook"
+    "build-storybook": "storybook build -c ./config/storybook",
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "keywords": [],
   "author": "ARLebedev",
@@ -53,6 +54,7 @@
     "css-loader": "^6.8.1",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-default-plugin": "^0.0.2",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
@@ -83,6 +85,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.5.0",
     "concurrently": "^8.2.1",
@@ -93,6 +96,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^13.2.2",
     "react-redux": "^8.1.2",
-    "react-router-dom": "^6.15.0"
+    "react-router-dom": "^6.15.0",
+    "react-virtuoso": "^4.6.0"
   }
 }

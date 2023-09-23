@@ -5,7 +5,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import LoginForm from './LoginForm'
 
 const meta = {
-  title: 'feature/LoginForm',
+  title: 'features/LoginForm',
   component: LoginForm,
   tags: ['autodocs'],
 } satisfies Meta<typeof LoginForm>

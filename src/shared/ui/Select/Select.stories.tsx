@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import storybook from './storybook.png'
 import { Select } from './Select'
 
 const meta = {
