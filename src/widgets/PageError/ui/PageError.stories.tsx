@@ -19,3 +19,7 @@ export const Light: Story = {
 export const Dark: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
 }
+
+export const Crimson: Story = {
+  decorators: [ThemeDecorator(Theme.CRIMSON)],
+}

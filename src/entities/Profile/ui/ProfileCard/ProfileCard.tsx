@@ -65,8 +65,18 @@ export const ProfileCard = (props: ProfileCardType) => {
         <Avatar src={data?.avatar} />
       </HStack>
       )}
-      <Input onChange={onChangeFirstName} readOnly={readOnly} value={data?.first} placeholder={t('Ваше имя')} />
-      <Input onChange={onChangeLastName} readOnly={readOnly} value={data?.lastname} placeholder={t('Ваша фамилия')} />
+      <Input
+        data-testid="ProfileCard.FirstName"
+        onChange={onChangeFirstName}
+        readOnly={readOnly}
+        value={data?.first}
+        placeholder={t('Ваше имя')} />
+      <Input
+        data-testid="ProfileCard.LastName"
+        onChange={onChangeLastName}
+        readOnly={readOnly}
+        value={data?.lastname}
+        placeholder={t('Ваша фамилия')} />
       <Input onChange={onChangeAge} readOnly={readOnly} value={data?.age} placeholder={t('Ваш возраст')} />
       <Input onChange={onChangeCity} readOnly={readOnly} value={data?.city} placeholder={t('Город')} />
       <Input onChange={onChangeAvatar} readOnly={readOnly} value={data?.avatar} placeholder={t('Аватар')} />

@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react'
+import { memo, useCallback } from 'react'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
@@ -12,7 +12,8 @@ import CalendarIcon from 'shared/assets/icons/calendar.svg'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { HStack, VStack } from 'shared/ui/Stack'
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article'
+import { ArticleBlockType } from '../../model/consts/consts'
+import { ArticleBlock } from '../../model/types/article'
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from
   '../../model/selectors/articleDetails'
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById'
@@ -23,7 +24,7 @@ import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/Articl
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 
 interface ArticleDetailsProps {
-  id: string
+  id?: string
   className?: string
 }
 
@@ -62,7 +63,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   if (isLoading) {
     content = (
       <>
-        <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
+        <HStack max justify="center">
+          <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
+        </HStack>
         <Skeleton className={cls.title} width={300} height={32} />
         <Skeleton className={cls.skeleton} width={600} height={24} />
         <Skeleton className={cls.skeleton} width="100%" height={200} />
@@ -99,7 +102,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
-      <VStack gap="16" className={classNames(cls.ArticleDetails, {}, [className])}>{content}</VStack>
+      <VStack gap="16" max className={classNames(cls.ArticleDetails, {}, [className])}>{content}</VStack>
     </DynamicModuleLoader>
   )
 })

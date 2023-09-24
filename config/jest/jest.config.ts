@@ -37,6 +37,15 @@ const config: Config = {
     '\\.(s?css)$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
   },
+  reporters: [
+    'default',
+    ['jest-html-reporters', {
+      publicPath: '<rootDir>/reports/unit',
+      filename: 'report.html',
+      openReport: false,
+      inlineSource: true,
+    }],
+  ],
 }
 
 export default config

@@ -14,11 +14,6 @@ type ProfilePageProps = {
 
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
   const { id } = useParams<{ id: string }>()
-  const { t } = useTranslation()
-
-  if (!id) {
-    return <Text text={t('Профиль не найден')} />
-  }
 
   return (
     <Page className={classNames('', {}, [className])}>

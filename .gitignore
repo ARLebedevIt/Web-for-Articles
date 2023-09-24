@@ -6,7 +6,7 @@
 extractedTranslations/
 # testing
 /coverage
-
+/reports
 #env 
 
 .env

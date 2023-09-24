@@ -39,10 +39,17 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
       {canEdit && (
       <div>
         {readOnly ? (
-          <Button onClick={onEdit} theme={ButtonTheme.OUTLINE}>{t('Редактировать')}</Button>
+          <Button
+            onClick={onEdit}
+            data-testid="EditableProfileCardHeader.EditBtn"
+            theme={ButtonTheme.OUTLINE}>
+            {t('Редактировать')}
+
+          </Button>
         ) : (
           <HStack gap="8">
             <Button
+              data-testid="EditableProfileCardHeader.CancelBtn"
               onClick={onCancelEdit}
               theme={ButtonTheme.OUTLINE_RED}
                 >
@@ -51,6 +58,7 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
             <Button
               onClick={onSaveEdit}
               theme={ButtonTheme.OUTLINE}
+              data-testid="EditableProfileCardHeader.SaveBtn"
                 >
               {t('Сохранить')}
             </Button>

@@ -21,10 +21,8 @@ export interface StateSchema {
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
-  // articleDetailsComments?: ArticleDetailsCommentsSchema
   addCommentForm?: AddComentFormShema
   articlesPage?: ArticlesPageSchema
-  // articleDetailsRecommendations?: ArticleDetailsPageRecommendationsSchema
   articleDetailsPage?: ArticleDetailsPageSchema
 }
 

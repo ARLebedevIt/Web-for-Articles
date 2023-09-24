@@ -1,5 +1,5 @@
 import {
-  ArticleCategoryTabs, ArticleSortFields, ArticleSortSelector, ArticleView,
+  ArticleCategoryTabs, ArticleCategoryType, ArticleSortFields, ArticleSortSelector, ArticleView,
 } from 'entities/Article'
 import { ArticleViewSelector } from 'features/ArticleViewSelector'
 import { memo, useCallback } from 'react'
@@ -11,7 +11,6 @@ import { Card } from 'shared/ui/Card/Card'
 import { Input } from 'shared/ui/Input/ui/Input'
 import { SortOrder } from 'shared/types'
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce'
-import { ArticleCategoryType } from 'entities/Article/model/types/article'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
 import { articlesPageActions } from '../../model/slice/articlesPageSlice'
 import {

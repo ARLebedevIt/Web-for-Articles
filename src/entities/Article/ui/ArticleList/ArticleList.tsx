@@ -5,10 +5,11 @@ import { Text, TextSize } from 'shared/ui/Text/ui/Text'
 import { useTranslation } from 'react-i18next'
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso'
 import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters'
-import { Article, ArticleView } from '../../model/types/article'
+import { Article } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import cls from './ArticleList.module.scss'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
+import { ArticleView } from '../../model/consts/consts'
 
 type ArticleListProps = {
   className?: string
@@ -17,6 +18,7 @@ type ArticleListProps = {
   view?: ArticleView
   target?: HTMLAttributeAnchorTarget
   onLoadNextPart?: () => void
+  virtualized?: boolean
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -31,7 +33,7 @@ const getSkeletons = (view: ArticleView) => {
 
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
-    articles, className, onLoadNextPart, target, isLoading, view = ArticleView.GRID,
+    articles, className, onLoadNextPart, target, isLoading, view = ArticleView.GRID, virtualized = true,
   } = props
   const { t } = useTranslation()
 
@@ -67,30 +69,35 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-  //   <VirtuosoGrid
-  //     listClassName={classNames(cls.ArticleList, {}, [className, cls[view]])}
-  //     useWindowScroll
-  //     style={{ height: '100%' }}
-  //     data={articles}
-  //     components={{
-  //       Footer,
-  //       ScrollSeekPlaceholder: ({ height, width, index }) => (
-  //         <div>
-  //           --
-  //         </div>
-  //       ),
-  //     }}
-  //     // endReached={onLoadNextPart}
-  //     itemContent={(idx_, item) => (
-  //       renderArticle(item)
-  //     )}
-  // />
-
-    <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-      {articles.length > 0
-        ? articles.map(renderArticle)
-        : null}
-      {isLoading && getSkeletons(view)}
+    <div>
+      {virtualized
+        ? (
+          <VirtuosoGrid
+            listClassName={classNames(cls.ArticleList, {}, [className, cls[view]])}
+            useWindowScroll
+            style={{ height: '100%' }}
+            data={articles}
+            components={{
+              Footer,
+              ScrollSeekPlaceholder: ({ height, width, index }) => (
+                <div>
+                  --
+                </div>
+              ),
+            }}
+            // endReached={onLoadNextPart}
+            itemContent={(idx_, item) => (
+              renderArticle(item)
+            )}
+          />
+        ) : (
+          <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+            {articles.length > 0
+              ? articles.map(renderArticle)
+              : null}
+            {isLoading && getSkeletons(view)}
+          </div>
+        )}
     </div>
   )
 })

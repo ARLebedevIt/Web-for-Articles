@@ -6,15 +6,13 @@ import ViewsIcon from 'shared/assets/icons/views.svg'
 import { Card } from 'shared/ui/Card/Card'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Button, ButtonTheme } from 'shared/ui/Button/ui/Button'
-import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { HTMLAttributeAnchorTarget, memo } from 'react'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { AppLink } from 'shared/ui/AppLink/ui/AppLink'
-import {
-  Article, ArticleBlockType, ArticleTextBlock, ArticleView,
-} from '../../model/types/article'
 import cls from './ArticleListItem.module.scss'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+import { Article, ArticleTextBlock } from '../../model/types/article'
+import { ArticleBlockType, ArticleView } from '../../model/consts/consts'
 
 type ArticleListItemProps = {
   className?: string

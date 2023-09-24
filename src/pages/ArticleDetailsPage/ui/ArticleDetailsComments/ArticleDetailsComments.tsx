@@ -16,7 +16,7 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 
 type ArticleDetailsCommentsProps = {
   className?: string
-  id: string
+  id?: string
 }
 
 export const ArticleDetailsComments = memo(({ className, id }: ArticleDetailsCommentsProps) => {

@@ -2,4 +2,4 @@ export { scrollPositionSaverReducer, scrollPositionSaverActions } from './model/
 
 export { getScrollPostionDataByPath } from './model/selectors/scrollPositionSelectors'
 
-export { ScrollPositionSaverSchema } from './model/types/ScrollPositionSaver'
+export type { ScrollPositionSaverSchema } from './model/types/ScrollPositionSaver'
