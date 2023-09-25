@@ -1,0 +1,8 @@
+.panel {
+  position: absolute;
+  z-index: 1000;
+  background: var(--inverted-bg-color);
+  color: var(--inverted-secondary-color);
+  padding: 15px;
+  outline: none;
+}

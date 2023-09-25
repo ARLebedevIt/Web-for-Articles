@@ -1,4 +1,38 @@
 {
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Уведомление 1",
+      "description": "Произошло какое-то событие",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Уведомление 2",
+      "description": "Произошло какое-то событие",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "3",
+      "title": "Уведомление 3",
+      "description": "Произошло какое-то событие",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "4",
+      "title": "Уведомление 4",
+      "description": "Произошло какое-то событие",
+      "userId": "1"
+    },
+    {
+      "id": "5",
+      "title": "Уведомление 1",
+      "description": "Произошло какое-то событие",
+      "userId": "2"
+    }
+  ],
   "posts": [
     {
       "id": "1",
@@ -584,7 +618,7 @@
       "first": "FirtName",
       "lastname": "LastName",
       "age": 30,
-      "currency": "RUB",
+      "currency": "USD",
       "country": "Russia",
       "city": "Moscow",
       "username": "admin",
@@ -600,6 +634,70 @@
       "city": "Moscow",
       "username": "user",
       "avatar": "https://sun6-21.userapi.com/s/v1/ig2/iMXKOnS1VEI0ZibjuPPRvUjcMTKNjzOfw2IrYVUh7twfviPFY7dT5jSPUHjFxz6CZkb4WQ5gVhTwVtmOsCMuGreO.jpg?size=1067x1067&quality=96&crop=7,7,1067,1067&ava=1"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "id": "3",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "id": "DOIzhb9"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 4,
+      "id": "hr9uceY"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 1,
+      "id": "P07TNbb"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хороший профиль",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хороший профиль",
+      "userId": "1",
+      "profileId": "2"
+    },
+    {
+      "id": "3",
+      "rate": 4,
+      "feedback": "Хороший профиль",
+      "userId": "1",
+      "profileId": "1"
     }
   ]
 }

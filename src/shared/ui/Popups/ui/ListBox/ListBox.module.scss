@@ -1,0 +1,22 @@
+.ListBox {
+  position: relative;
+}
+
+.label {
+  color: var(--secondary-color);
+}
+
+.readOnly {
+  opacity: .8;
+}
+
+.options {
+  background: var(--listbox-bg);
+  position: absolute;
+  z-index: 10000;
+}
+
+.item {
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+}

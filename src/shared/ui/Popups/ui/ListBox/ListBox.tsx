@@ -1,10 +1,12 @@
-import { Fragment, ReactNode, useState } from 'react'
+import { Fragment, ReactNode } from 'react'
 import { Listbox as HListBox } from '@headlessui/react'
-import { Mods, classNames } from 'shared/lib/classNames/classNames'
-import { DropdownDirection } from '../../types/ui'
+import { Mods, classNames } from '@/shared/lib/classNames/classNames'
+import { DropdownDirection } from '../../../../types/ui'
 import cls from './ListBox.module.scss'
-import { Button } from '../Button/ui/Button'
-import { HStack } from '../Stack'
+import { Button } from '../../../Button/ui/Button'
+import { HStack } from '../../../Stack'
+import { mapDirection } from '../../styles/consts'
+import popupCls from '../../styles/popup.module.scss'
 
 export interface ListBoxItem {
   value: string
@@ -23,14 +25,7 @@ interface ListBoxProps {
   label?: string
 }
 
-const mapDirection: Record<DropdownDirection, string> = {
-  'bottom left': cls.optionsBottomLeft,
-  'bottom right': cls.optionsBottomRight,
-  'top left': cls.optionsTopLeft,
-  'top right': cls.optionsTopRight,
-}
-
-export const Listbox = (props: ListBoxProps) => {
+export const ListBox = (props: ListBoxProps) => {
   const {
     className, items, onChange, defaultValue, value, readonly, direction = 'bottom right', label,
   } = props
@@ -46,10 +41,10 @@ export const Listbox = (props: ListBoxProps) => {
       <HListBox
         disabled={readonly}
         as="div"
-        className={classNames(cls.ListBox, {}, [className])}
+        className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
         value={value}
         onChange={onChange}>
-        <HListBox.Button className={cls.trigger}>
+        <HListBox.Button as="div" className={popupCls.trigger}>
           <Button disabled={readonly}>
             {value || defaultValue}
           </Button>
@@ -66,8 +61,8 @@ export const Listbox = (props: ListBoxProps) => {
                 <li className={classNames(
                   cls.item,
                   {
-                    [cls.active]: active,
-                    [cls.disabled]: item.disabled,
+                    [popupCls.active]: active,
+                    [popupCls.disabled]: item.disabled,
                   },
                 )}
                 >

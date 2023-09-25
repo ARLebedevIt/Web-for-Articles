@@ -1,0 +1,14 @@
+.menu {
+  position: absolute;
+  z-index: 1000;
+  flex-direction: column;
+  display: flex;
+  border: 1px solid var(--inverted-secondary-color);
+}
+
+.item {
+  width: 100%;
+  color: var(--inverted-secondary-color);
+  padding: 10px 25px;
+  outline: none;
+}

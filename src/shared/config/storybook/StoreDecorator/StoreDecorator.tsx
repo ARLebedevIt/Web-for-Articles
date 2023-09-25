@@ -1,11 +1,11 @@
 import { Decorator } from '@storybook/react'
-import { StateSchema, StoreProvider } from 'app/providers/StoreProvider'
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleSlice'
-import { loginReducer } from 'features/AuthByUserName/model/slice/loginSlice'
-import { addCommentFormReducer } from 'features/addCommentForm/model/slice/addCommentFormSlice'
-import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice'
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice'
-import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider'
+import { articleDetailsReducer } from '@/entities/Article/model/slice/articleSlice'
+import { loginReducer } from '@/features/AuthByUserName/model/slice/loginSlice'
+import { addCommentFormReducer } from '@/features/addCommentForm/model/slice/addCommentFormSlice'
+import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice'
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slice'
+import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,

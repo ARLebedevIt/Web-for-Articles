@@ -1,14 +1,18 @@
-import React from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import React, { SVGProps } from 'react'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Icon.module.scss'
 
-type IconProps = {
+interface IconProps extends SVGProps<SVGSVGElement> {
   Svg: React.VFC<React.SVGProps<SVGSVGElement>>
   className?: string
+  inverted?: boolean
 }
 
-export const Icon = ({ className, Svg }: IconProps) => {
+export const Icon = (props: IconProps) => {
+  const {
+    className, Svg, inverted, ...otherProps
+  } = props
   return (
-    <Svg className={classNames(cls.Icon, {}, [className])} />
+    <Svg {...otherProps} className={classNames(inverted ? cls.inverted : cls.Icon, {}, [className])} />
   )
 }

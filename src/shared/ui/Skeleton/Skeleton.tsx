@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Skeleton.module.scss'
 
 type SkeletonProps = {

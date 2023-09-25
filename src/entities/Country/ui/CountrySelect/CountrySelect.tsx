@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Listbox } from 'shared/ui/ListBox/ListBox'
+import { ListBox } from '@/shared/ui/Popups'
 import { Country } from '../../model/types/country'
 
 export default {}
@@ -29,7 +29,7 @@ export const CountrySelect = memo(({
   }, [onChange])
 
   return (
-    <Listbox
+    <ListBox
       readonly={readonly}
       onChange={onChangeHandler}
       className={className}

@@ -1,10 +1,10 @@
-import { ArticleView } from 'entities/Article'
 import React, { memo } from 'react'
-import TemplateIcon from 'shared/assets/icons/template.svg'
-import GridIcon from 'shared/assets/icons/grid.svg'
-import { Button, ButtonTheme } from 'shared/ui/Button/ui/Button'
-import { Icon } from 'shared/ui/Icon/Icon'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { ArticleView } from '@/entities/Article'
+import TemplateIcon from '@/shared/assets/icons/template.svg'
+import GridIcon from '@/shared/assets/icons/grid.svg'
+import { Button, ButtonTheme } from '@/shared/ui/Button/ui/Button'
+import { Icon } from '@/shared/ui/Icon/Icon'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleViewSelector.module.scss'
 
 type ArticleViewSelectorProps = {

@@ -61,7 +61,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'react/no-array-index-key': 'off',
     'react/jsx-closing-bracket-location': 'off',
-    'default-plugin/path-checker': 2,
+    'default-plugin/path-checker': [2, { alias: '@' }],
   },
   globals: {
     __IS_DEV__: true,

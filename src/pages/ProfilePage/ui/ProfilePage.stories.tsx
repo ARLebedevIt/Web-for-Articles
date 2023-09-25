@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from 'app/providers/ThemeProvider'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-import storybookImg from 'shared/assets/tests/storybook.png'
-import { Currency } from 'entities/Currency'
-import { Country } from 'entities/Country'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from '@/app/providers/ThemeProvider'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import storybookImg from '@/shared/assets/tests/storybook.png'
+import { Currency } from '@/entities/Currency'
+import { Country } from '@/entities/Country'
 import ProfilePage from './ProfilePage'
 
 const meta = {
