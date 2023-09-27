@@ -678,26 +678,6 @@
     }
   ],
   "profile-ratings": [
-    {
-      "id": "1",
-      "rate": 4,
-      "feedback": "Хороший профиль",
-      "userId": "1",
-      "profileId": "1"
-    },
-    {
-      "id": "2",
-      "rate": 4,
-      "feedback": "Хороший профиль",
-      "userId": "1",
-      "profileId": "2"
-    },
-    {
-      "id": "3",
-      "rate": 4,
-      "feedback": "Хороший профиль",
-      "userId": "1",
-      "profileId": "1"
-    }
+
   ]
 }

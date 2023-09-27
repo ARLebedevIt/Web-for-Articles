@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { rest } from 'msw'
-import { mswLoader } from 'msw-storybook-addon'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { Article } from '@/entities/Article'
 import { ArticleRecommendationsList } from './ArticleRecommendationsList'

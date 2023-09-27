@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react'
 import { Icon } from '../Icon/Icon'
 import StarIcon from '../../assets/icons/star.svg'
-import { Mods, classNames } from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './StarRating.module.scss'
 
 type StarRatingProps = {

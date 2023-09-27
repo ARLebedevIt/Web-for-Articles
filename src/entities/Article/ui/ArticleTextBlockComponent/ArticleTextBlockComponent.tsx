@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { Text } from '@/shared/ui/Text/ui/Text'
+import { Text } from '@/shared/ui/Text'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { VStack } from '@/shared/ui/Stack'
 import { ArticleTextBlock } from '../../model/types/article'

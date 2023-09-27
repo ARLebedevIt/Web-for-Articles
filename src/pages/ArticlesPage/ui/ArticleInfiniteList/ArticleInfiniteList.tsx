@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 import { ArticleList } from '@/entities/Article'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { Text } from '@/shared/ui/Text/ui/Text'
+import { Text } from '@/shared/ui/Text'
 import { getArticles } from '../../model/slice/articlesPageSlice'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView }

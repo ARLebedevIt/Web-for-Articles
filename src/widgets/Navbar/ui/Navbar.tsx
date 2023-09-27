@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/entities/User'
 import { LoginModal } from '@/features/AuthByUserName'
-import { Button, ButtonTheme } from '@/shared/ui/Button/ui/Button'
+import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextTheme } from '@/shared/ui/Text/ui/Text'
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/ui/AppLink'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { Text, TextTheme } from '@/shared/ui/Text'
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink'
 import { HStack } from '@/shared/ui/Stack'
 import { NotificationButton } from '@/features/notificationsButton'
 import { AvatarDropdown } from '@/features/avatarDropdown'
 import cls from './Navbar.module.scss'
+import { getRouteArticleCreate } from '@/shared/const/router'
 
 interface NavbarProps {
   className?: string;
@@ -36,7 +36,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
       <header className={classNames(cls.Navbar, {}, [className])}>
         <Text theme={TextTheme.INVERTED} className={cls.appName} title={t('Article app')} />
         <div className={cls.navigation}>
-          <AppLink theme={AppLinkTheme.INVERTED} to={RoutePath.article_create}>{t('Создать статью')}</AppLink>
+          <AppLink theme={AppLinkTheme.INVERTED} to={getRouteArticleCreate()}>{t('Создать статью')}</AppLink>
           <HStack gap="16" className={cls.actions}>
             <NotificationButton />
             <AvatarDropdown />

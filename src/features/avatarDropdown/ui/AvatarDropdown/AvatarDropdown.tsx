@@ -4,12 +4,11 @@ import { useSelector } from 'react-redux'
 import {
   getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Avatar } from '@/shared/ui/Avatar/Avatar'
+import { Avatar } from '@/shared/ui/Avatar'
 import { Dropdown } from '@/shared/ui/Popups'
-import cls from './AvatarDropdown.module.scss'
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/router'
 
 type AvatarDropdownProps = {
   className?: string
@@ -41,11 +40,11 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
       items={[
         {
           content: t('Профиль'),
-          href: RoutePath.profile + authData.id,
+          href: getRouteProfile(authData.id),
         },
         ...(isAdminPanelAvailable ? [{
           content: t('Админка'),
-          href: RoutePath.admin_panel,
+          href: getRouteAdmin(),
         }] : []),
         {
           content: t('Выйти'),

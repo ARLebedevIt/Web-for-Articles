@@ -1,14 +1,19 @@
 import type { Preview } from '@storybook/react'
 import { initialize, mswDecorator, mswLoader } from 'msw-storybook-addon'
+import { Theme } from '../../src/shared/const/theme'
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator'
-import { Theme } from '../../src/app/providers/ThemeProvider/lib/ThemeContext'
-import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator'
 
 initialize()
 
 const preview: Preview = {
   parameters: {
+    previewTabs: {
+      docs: {
+        hidden: true,
+      },
+    },
+    layout: 'fullscreen',
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
@@ -16,8 +21,16 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    themes: {
+      default: 'Light',
+      list: [
+        { name: 'Light', class: [Theme.LIGHT, 'app'], color: '#b6b6b6' },
+        { name: 'Dark', class: [Theme.DARK, 'app'], color: '#0b0085' },
+        { name: 'Crmison', class: [Theme.CRIMSON, 'app'], color: '#570101' },
+      ],
+    },
   },
-  decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouterDecorator, mswDecorator],
+  decorators: [StyleDecorator, RouterDecorator, mswDecorator],
   loaders: [mswLoader],
 }
 

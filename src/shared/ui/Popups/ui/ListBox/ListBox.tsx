@@ -3,10 +3,10 @@ import { Listbox as HListBox } from '@headlessui/react'
 import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 import { DropdownDirection } from '../../../../types/ui'
 import cls from './ListBox.module.scss'
-import { Button } from '../../../Button/ui/Button'
 import { HStack } from '../../../Stack'
 import { mapDirection } from '../../styles/consts'
 import popupCls from '../../styles/popup.module.scss'
+import { Button } from '../../../Button/index'
 
 export interface ListBoxItem {
   value: string

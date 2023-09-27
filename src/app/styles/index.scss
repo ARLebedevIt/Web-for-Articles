@@ -4,9 +4,11 @@
 @import 'variables/global';
 @import 'themes/crimson';
 
-body {
-	font: var(--font-m);
-	color: var(--primary-color);
+.app,
+.app_modal,
+.app_drawer {
+    font: var(--font-m);
+    color: var(--primary-color);
 }
 
 .app {
@@ -18,7 +20,6 @@ body {
 	display: flex;
 }
 
-
 *::-webkit-scrollbar {
 	width: 12px;
 	height: 10px;
@@ -27,7 +28,6 @@ body {
 *::-webkit-scrollbar-track {
 	background: var(--card-bg);
 }
-
 
 *::-webkit-scrollbar-thumb {
 	background-color: var(--inverted-primary-color);

@@ -1,10 +1,6 @@
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { BugButton } from '@/app/providers/ErrorBoundary'
-import { ListBox } from '@/shared/ui/Popups'
-import { Page } from '@/widgets/Page/Page'
-import { StarRating } from '@/shared/ui/StarRating/StarRating'
-import { RatingCard } from '@/entities/Rating'
+import { Page } from '@/widgets/Page'
 
 type MainPageType = {}
 
@@ -13,7 +9,6 @@ const MainPage = memo((props: MainPageType) => {
   return (
     <Page>
       {t('Главная страница')}
-      <BugButton />
     </Page>
   )
 })

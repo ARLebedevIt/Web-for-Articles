@@ -1,5 +1,4 @@
 import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/testAsyncThunk'
-import { Comment } from '@/entities/Comment'
 import { addCommentForArticle } from './addCommentForArticle'
 
 const thunk = new TestAsyncThunk(addCommentForArticle, {

@@ -19,9 +19,11 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
-    'default-plugin',
+    'my-fsd-helper',
+    'unused-imports',
   ],
   rules: {
+    'unused-imports/no-unused-imports': 'error',
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
@@ -61,7 +63,21 @@ module.exports = {
     'no-param-reassign': 'off',
     'react/no-array-index-key': 'off',
     'react/jsx-closing-bracket-location': 'off',
-    'default-plugin/path-checker': [2, { alias: '@' }],
+    'my-fsd-helper/path-checker': [2, { alias: '@' }],
+    'my-fsd-helper/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
+      },
+    ],
+    'my-fsd-helper/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,

@@ -1,10 +1,9 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import AddCommentForm from '@/features/addCommentForm/ui/AddCommentForm/AddCommentForm'
 import { CommentList } from '@/entities/Comment'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Text, TextSize } from '@/shared/ui/Text/ui/Text'
+import { Text, TextSize } from '@/shared/ui/Text'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { VStack } from '@/shared/ui/Stack'
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -13,6 +12,7 @@ import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import { fetchCommentsByArticleId }
   from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
+import { AddCommentForm } from '@/features/addCommentForm'
 
 type ArticleDetailsCommentsProps = {
   className?: string

@@ -11,7 +11,7 @@ import { ArticleDetailsPageSchema }
   from '@/pages/ArticleDetailsPage'
 import { ArticlesPageSchema } from '@/pages/ArticlesPage'
 import { rtkApi } from '@/shared/api/rtkApi'
-import { ScrollPositionSaverSchema } from '@/widgets/ScrollPositionSaver'
+import { ScrollPositionSaverSchema } from '@/features/ScrollPositionSaver'
 
 export interface StateSchema {
   user: UserSchema

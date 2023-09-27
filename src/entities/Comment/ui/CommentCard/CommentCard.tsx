@@ -1,12 +1,12 @@
-import { Avatar } from '@/shared/ui/Avatar/Avatar'
-import { Text } from '@/shared/ui/Text/ui/Text'
+import { Avatar } from '@/shared/ui/Avatar'
+import { Text } from '@/shared/ui/Text'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
-import { AppLink } from '@/shared/ui/AppLink/ui/AppLink'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { Skeleton } from '@/shared/ui/Skeleton'
+import { AppLink } from '@/shared/ui/AppLink'
 import { VStack } from '@/shared/ui/Stack'
 import { Comment } from '../../model/types/comment'
 import cls from './CommentCard.module.scss'
+import { getRouteProfile } from '@/shared/const/router'
 
 type CommentCardProps = {
   comment?: Comment
@@ -35,7 +35,7 @@ export const CommentCard = (props: CommentCardProps) => {
 
   return (
     <VStack max gap="8" className={classNames(cls.CommentCard, {}, [className])}>
-      <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
+      <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
         {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} /> : null}
         <Text title={comment.user.username} />
       </AppLink>
