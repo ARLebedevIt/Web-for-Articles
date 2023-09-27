@@ -7,7 +7,7 @@ type MainPageType = {}
 const MainPage = memo((props: MainPageType) => {
   const { t } = useTranslation()
   return (
-    <Page>
+    <Page data-testid="MainPage">
       {t('Главная страница')}
     </Page>
   )

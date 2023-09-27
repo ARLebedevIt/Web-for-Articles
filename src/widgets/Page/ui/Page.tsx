@@ -11,8 +11,9 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
 import cls from './Page.module.scss'
 import { getScrollPostionDataByPath, scrollPositionSaverActions } from '@/features/ScrollPositionSaver'
+import { TestProps } from '@/shared/types/tests'
 
-type PageProps = {
+interface PageProps extends TestProps {
   className?: string
   children: ReactNode
   onScrollEnd?: () => void
@@ -46,7 +47,11 @@ export const Page = memo((props: PageProps) => {
   })
 
   return (
-    <main onScroll={onScrollHandler} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
+    <main
+      data-testid={props['data-testid'] ?? 'Page'}
+      onScroll={onScrollHandler}
+      ref={wrapperRef}
+      className={classNames(cls.Page, {}, [className])}>
       {children}
       {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
     </main>

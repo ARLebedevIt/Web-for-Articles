@@ -7,7 +7,7 @@ type ForbiddenPageProps = {}
 const ForbiddenPage = (props: ForbiddenPageProps) => {
   const { t } = useTranslation()
   return (
-    <Page>{t('У вас нет доступа к этой странице')}</Page>
+    <Page data-testid="ForbiddenPage">{t('У вас нет доступа к этой странице')}</Page>
   )
 }
 

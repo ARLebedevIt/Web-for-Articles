@@ -594,6 +594,15 @@
       "avatar": "https://cdn3.iconfinder.com/data/icons/web-design-and-development-glyph-vol-1/64/web-development-glyph-04-1024.png"
     },
     {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://play-lh.googleusercontent.com/V_P-I-UENK93ahkQgOWel8X8yFxjhOOfMAZjxXrqp311Gm_RBtlDXHLQhwFZN8n4aIQ"
+    },
+    {
       "id": "2",
       "username": "user",
       "password": "123",
@@ -634,6 +643,17 @@
       "city": "Moscow",
       "username": "user",
       "avatar": "https://sun6-21.userapi.com/s/v1/ig2/iMXKOnS1VEI0ZibjuPPRvUjcMTKNjzOfw2IrYVUh7twfviPFY7dT5jSPUHjFxz6CZkb4WQ5gVhTwVtmOsCMuGreO.jpg?size=1067x1067&quality=96&crop=7,7,1067,1067&ava=1"
+    },
+    {
+      "id": "4",
+      "first": "testuser",
+      "lastname": "testuser",
+      "age": 20,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "testuser",
+      "avatar": "https://clck.ru/35soXf"
     }
   ],
   "article-ratings": [
@@ -675,9 +695,14 @@
       "articleId": "10",
       "rate": 1,
       "id": "P07TNbb"
+    },
+    {
+      "userId": "4",
+      "articleId": "DFopbXi",
+      "rate": 4,
+      "feedback": "feedback",
+      "id": "BIO__MO"
     }
   ],
-  "profile-ratings": [
-
-  ]
+  "profile-ratings": []
 }

@@ -6,9 +6,11 @@
 extractedTranslations/
 # testing
 /coverage
-/reports
+/reports/unit
+/storybook-static
+.loki/report.html
+.loki/report.json
 #env 
-
 .env
 
 # production

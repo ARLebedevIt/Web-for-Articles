@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Select, SelectOptions } from '@/shared/ui/Select'
-import { SortOrder } from '@/shared/types'
+import { SortOrder } from '@/shared/types/sort'
 import { ArticleSortFields } from '@/entities/Article'
 import { HStack } from '@/shared/ui/Stack'
 

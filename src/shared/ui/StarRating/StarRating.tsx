@@ -14,9 +14,7 @@ type StarRatingProps = {
 const stars = [1, 2, 3, 4, 5]
 
 export const StarRating = memo((props: StarRatingProps) => {
-  const {
-    className, onSelect, selectedStars = 0, size = 30,
-  } = props
+  const { className, onSelect, selectedStars = 0, size = 30 } = props
 
   const [currentStarCount, setCurrentStarsCount] = useState(selectedStars)
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars))
@@ -45,17 +43,22 @@ export const StarRating = memo((props: StarRatingProps) => {
     <div className={classNames(cls.StarRating, {}, [className])}>
       {stars.map(starNumber => (
         <Icon
+          data-testid={`StarRating.${starNumber}`}
           width={size}
           height={size}
-          className={classNames(cls.starIcon, {
-            [cls.hovered]: Boolean(currentStarCount >= starNumber),
-            [cls.selected]: isSelected,
-          }, [cls.normal])}
+          className={classNames(cls.starIcon,
+            {
+              [cls.hovered]: Boolean(currentStarCount >= starNumber),
+              [cls.selected]: isSelected,
+            },
+            [cls.normal],
+          )}
           Svg={StarIcon}
           onMouseEnter={() => onHover(starNumber)}
           onMouseLeave={onLeave}
           onClick={() => onClick(starNumber)}
-          key={starNumber} />
+          key={starNumber}
+        />
       ))}
     </div>
   )

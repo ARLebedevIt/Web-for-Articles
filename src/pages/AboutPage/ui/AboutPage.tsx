@@ -7,7 +7,7 @@ type Props = {}
 const AboutPage = memo((props: Props) => {
   const { t } = useTranslation()
   return (
-    <Page>
+    <Page data-testid="AboutPage">
       {t('О сайте')}
     </Page>
   )

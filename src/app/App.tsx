@@ -1,4 +1,6 @@
-import { FC, Suspense, useEffect } from 'react'
+import {
+  FC, Suspense, useEffect,
+} from 'react'
 import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Navbar } from '@/widgets/Navbar'

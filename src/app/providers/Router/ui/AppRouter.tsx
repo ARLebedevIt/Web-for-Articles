@@ -9,7 +9,7 @@ type Props = {}
 
 const AppRouter = (props: Props) => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
-    const element = <div>{route.element}</div>
+    const { element } = route
     return (
       <Route
         key={route.path}

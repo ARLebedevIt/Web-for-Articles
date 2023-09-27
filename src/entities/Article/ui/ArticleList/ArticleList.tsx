@@ -68,7 +68,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-    <div>
+    <div data-testid="ArticleList">
       {virtualized
         ? (
           <VirtuosoGrid
@@ -78,7 +78,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
             data={articles}
             components={{
               Footer,
-              ScrollSeekPlaceholder: ({ height, width, index }) => (
+              // { height, width, index }
+              ScrollSeekPlaceholder: () => (
                 <div>
                   --
                 </div>
