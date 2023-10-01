@@ -1,9 +1,9 @@
 import { memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Skeleton } from '@/shared/ui/Skeleton'
-import { Card } from '@/shared/ui/Card'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
 import { ArticleView } from '../../model/consts/consts'
 import cls from './ArticleListItem.module.scss'
+import { Card } from '@/shared/ui/deprecated/Card'
 
 type ArticleListItemSkeletonProps = {
   className?: string
@@ -23,7 +23,7 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps
             <Skeleton width={150} height={16} className={cls.date} />
           </div>
           <Skeleton width={250} height={24} className={cls.title} />
-          <Skeleton height={200} className={cls.img} />
+          <Skeleton height={200} width="100%" className={cls.img} />
           <div className={cls.footer}>
             <Skeleton height={36} width={200} />
           </div>

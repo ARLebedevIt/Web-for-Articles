@@ -21,7 +21,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run lint:scss:fix` - Исправление scss файлов style линтером
 - `npm run test:unit` - Запуск unit тестов с jest
 - `npm run test:e2e` - Запуск e2e тестов с Cypress
-- `npm run test:ui` - Хапуск скриншотных тестов с loki
+- `npm run test:ui` - Запуск скриншотных тестов с loki
 - `npm run test:ui:ok` - Подтверждение новых скриншотов
 - `npm run test:ui:ci` - Запуск скриншотных тестов в CI
 - `npm run test:ui:report` - Генерация полного отчета для скриншотных тестов

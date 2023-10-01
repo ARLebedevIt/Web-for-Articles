@@ -1,6 +1,4 @@
-import {
-  MutableRefObject, ReactNode, UIEvent, memo, useRef,
-} from 'react'
+import { MutableRefObject, ReactNode, UIEvent, memo, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -10,8 +8,12 @@ import { StateSchema } from '@/app/providers/StoreProvider'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
 import cls from './Page.module.scss'
-import { getScrollPostionDataByPath, scrollPositionSaverActions } from '@/features/ScrollPositionSaver'
+import {
+  getScrollPostionDataByPath,
+  scrollPositionSaverActions,
+} from '@/features/ScrollPositionSaver'
 import { TestProps } from '@/shared/types/tests'
+import { toggleFeatures } from '@/shared/lib/features'
 
 interface PageProps extends TestProps {
   className?: string
@@ -25,21 +27,27 @@ export const Page = memo((props: PageProps) => {
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
   const dispatch = useAppDispatch()
   const { pathname } = useLocation()
-  const currentScrollPosition = useSelector(
-    (state: StateSchema) => getScrollPostionDataByPath(state, pathname),
+  const currentScrollPosition = useSelector((state: StateSchema) =>
+    getScrollPostionDataByPath(state, pathname),
   )
 
   useInfiniteScroll({
     triggerRef,
-    wrapperRef,
+    wrapperRef: toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => null,
+      off: () => wrapperRef,
+    }),
     callback: onScrollEnd,
   })
 
   const onScrollHandler = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    dispatch(scrollPositionSaverActions.setScrollPosition({
-      position: e.currentTarget.scrollTop,
-      path: pathname,
-    }))
+    dispatch(
+      scrollPositionSaverActions.setScrollPosition({
+        position: e.currentTarget.scrollTop,
+        path: pathname,
+      }),
+    )
   }, 500)
 
   useInitialEffect(() => {
@@ -51,7 +59,15 @@ export const Page = memo((props: PageProps) => {
       data-testid={props['data-testid'] ?? 'Page'}
       onScroll={onScrollHandler}
       ref={wrapperRef}
-      className={classNames(cls.Page, {}, [className])}>
+      className={classNames(
+        toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => cls.PageRedesigned,
+          off: () => cls.Page,
+        }),
+        {},
+        [className],
+      )}>
       {children}
       {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
     </main>

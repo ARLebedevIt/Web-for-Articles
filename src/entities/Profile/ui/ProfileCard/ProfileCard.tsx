@@ -1,16 +1,22 @@
 import { useTranslation } from 'react-i18next'
-import { Mods, classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text'
-import { Input } from '@/shared/ui/Input'
-import { Loader } from '@/shared/ui/Loader'
-import { Avatar } from '@/shared/ui/Avatar'
-import { Currency, CurrencySelect } from '@/entities/Currency'
-import { Country, CountrySelect } from '@/entities/Country'
-import { HStack, VStack } from '@/shared/ui/Stack'
-import { Profile } from '../../model/type/profile'
-import cls from './ProfileCard.module.scss'
 
-type ProfileCardType = {
+
+import { Currency } from '@/entities/Currency'
+import { Country } from '@/entities/Country'
+import { Profile } from '../../model/type/profile'
+import { ToggleFeatures } from '@/shared/lib/features'
+import {
+  DeprecatedProfileCard,
+  ProfileCardDeprecatedError,
+  ProfileCardDeprecatedSkeleton,
+} from '../ProfileCardDeprecated/ProfileCardDeprecated'
+import {
+  ProfileCardRedesigned,
+  ProfileCardRedesignedError,
+  ProfileCardRedesignedSkeleton,
+} from './ProfileCardRedesigned/ProfileCardRedesigned'
+
+export type ProfileCardType = {
   className?: string
   data?: Profile
   error?: string
@@ -21,73 +27,40 @@ type ProfileCardType = {
   onChangeAge?: (value?: string) => void
   onChangeUserName?: (value?: string) => void
   onChangeAvatar?: (value?: string) => void
-  onChangeCurrency?: (currency: Currency) => void;
-  onChangeCountry?: (country: Country) => void;
+  onChangeCurrency?: (currency: Currency) => void
+  onChangeCountry?: (country: Country) => void
   readOnly?: boolean
 }
 
 export const ProfileCard = (props: ProfileCardType) => {
-  const {
-    className, data, error, isLoading, onChangeFirstName, onChangeLastName, readOnly, onChangeAge, onChangeCity,
-    onChangeAvatar, onChangeUserName, onChangeCountry, onChangeCurrency,
-  } = props
+  const { className, error, isLoading } = props
+
   const { t } = useTranslation()
 
   if (isLoading) {
     return (
-      <HStack justify="center" className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
-        <Loader />
-      </HStack>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<ProfileCardRedesignedSkeleton />}
+        off={<ProfileCardDeprecatedSkeleton />}
+      />
     )
   }
 
   if (error) {
     return (
-      <HStack justify="center" className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
-        <Text
-          align={TextAlign.CENTER}
-          title={t('Произошла ошибка при загрузке профиля')}
-          theme={TextTheme.ERROR}
-          text={t('Обновите страницу')}
-        />
-      </HStack>
+      <ToggleFeatures 
+      feature='isAppRedesigned' 
+      on={<ProfileCardRedesignedError />} 
+      off={<ProfileCardDeprecatedError />} />
     )
   }
 
-  const mods: Mods = {
-    [cls.editing]: !readOnly,
-  }
-
   return (
-    <VStack gap="16" max className={classNames(cls.ProfileCard, mods, [className])}>
-      {data?.avatar && (
-      <HStack justify="center" max className={cls.avararWrapper}>
-        <Avatar src={data?.avatar} />
-      </HStack>
-      )}
-      <Input
-        data-testid="ProfileCard.FirstName"
-        onChange={onChangeFirstName}
-        readOnly={readOnly}
-        value={data?.first}
-        placeholder={t('Ваше имя')} />
-      <Input
-        data-testid="ProfileCard.LastName"
-        onChange={onChangeLastName}
-        readOnly={readOnly}
-        value={data?.lastname}
-        placeholder={t('Ваша фамилия')} />
-      <Input onChange={onChangeAge} readOnly={readOnly} value={data?.age} placeholder={t('Ваш возраст')} />
-      <Input onChange={onChangeCity} readOnly={readOnly} value={data?.city} placeholder={t('Город')} />
-      <Input onChange={onChangeAvatar} readOnly={readOnly} value={data?.avatar} placeholder={t('Аватар')} />
-      <Input
-        onChange={onChangeUserName}
-        readOnly={readOnly}
-        value={data?.username}
-        placeholder={t('Имя пользователя')}
-        />
-      <CurrencySelect className={cls.input} value={data?.currency} onChange={onChangeCurrency} readonly={readOnly} />
-      <CountrySelect className={cls.input} value={data?.country} onChange={onChangeCountry} readonly={readOnly} />
-    </VStack>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={<ProfileCardRedesigned {...props} />}
+      off={<DeprecatedProfileCard {...props} />}
+    />
   )
 }

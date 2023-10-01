@@ -591,6 +591,16 @@
       "roles": [
         "ADMIN"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isAppRedesigned": true
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false,
+        "isArticlePageWasOpened": true
+      },
       "avatar": "https://cdn3.iconfinder.com/data/icons/web-design-and-development-glyph-vol-1/64/web-development-glyph-04-1024.png"
     },
     {
@@ -609,15 +619,34 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isAppRedesigned": false
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false,
+        "isArticlePageWasOpened": true
+      },
       "avatar": "https://sun6-21.userapi.com/s/v1/ig2/iMXKOnS1VEI0ZibjuPPRvUjcMTKNjzOfw2IrYVUh7twfviPFY7dT5jSPUHjFxz6CZkb4WQ5gVhTwVtmOsCMuGreO.jpg?size=1067x1067&quality=96&crop=7,7,1067,1067&ava=1"
     },
     {
       "id": "3",
-      "username": "manager ",
+      "username": "manager",
       "password": "123",
       "roles": [
         "MANAGER"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isAppRedesigned": true
+      },
+      "jsonSettings": {
+        "theme": "app_light_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "avatar": "https://sun6-21.userapi.com/s/v1/ig2/iMXKOnS1VEI0ZibjuPPRvUjcMTKNjzOfw2IrYVUh7twfviPFY7dT5jSPUHjFxz6CZkb4WQ5gVhTwVtmOsCMuGreO.jpg?size=1067x1067&quality=96&crop=7,7,1067,1067&ava=1"
     }
   ],
@@ -695,13 +724,6 @@
       "articleId": "10",
       "rate": 1,
       "id": "P07TNbb"
-    },
-    {
-      "userId": "4",
-      "articleId": "DFopbXi",
-      "rate": 4,
-      "feedback": "feedback",
-      "id": "BIO__MO"
     }
   ],
   "profile-ratings": []

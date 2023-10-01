@@ -52,11 +52,23 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'to', 'alt', 'label', 'target', 'justify', 'align', 'defaultValue',
+        ignoreAttribute: [
+          'data-testid', 
+          'to', 
+          'alt', 
+          'label', 
+          'target', 
+          'justify', 
+          'align', 
+          'defaultValue',
           'role',
           'direction',
           'gap',
           'as',
+          'variant',
+          'feature',
+          'border',
+          'size',
         ],
       },
     ],
@@ -68,7 +80,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'react/no-array-index-key': 'off',
     'react/jsx-closing-bracket-location': 'off',
-    'my-fsd-helper/path-checker': [2, { alias: '@' }],
+    'my-fsd-helper/path-checker': ['error', { alias: '@'}],
     'my-fsd-helper/public-api-imports': [
       'error',
       {
@@ -84,6 +96,7 @@ module.exports = {
       },
     ],
     'react/jsx-max-props-per-line': ['error', {maximum: 5}],
+    'react/no-unstable-nested-components': 'warn',
   },
   globals: {
     __IS_DEV__: true,

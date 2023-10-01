@@ -3,7 +3,7 @@ import React, { HTMLAttributeAnchorTarget, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { VirtuosoGrid } from 'react-virtuoso'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextSize } from '@/shared/ui/Text'
+import { Text, TextSize } from '@/shared/ui/deprecated/Text'
 import { Article } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import cls from './ArticleList.module.scss'
@@ -32,7 +32,7 @@ const getSkeletons = (view: ArticleView) => {
 
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
-    articles, className, onLoadNextPart, target, isLoading, view = ArticleView.GRID, virtualized = true,
+    articles, className, onLoadNextPart, target, isLoading, view = ArticleView.GRID, virtualized = false,
   } = props
   const { t } = useTranslation()
 

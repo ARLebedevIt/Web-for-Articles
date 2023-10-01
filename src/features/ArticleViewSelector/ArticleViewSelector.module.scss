@@ -1,4 +1,12 @@
-.noSelected {
-  fill: var(--secondary-color);
-  opacity: .8;
+.ArticleViewSelector {
+  .notSelected {
+    fill: var(--secondary-color);
+    opacity: .8;
+  }
+}
+
+.ArticleViewSelectorRedesigned {
+  .notSelected {
+    color: var(--light-bg-redesigned);
+  }
 }

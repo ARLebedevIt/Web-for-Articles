@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux'
 import { useGetProfileRating, useSetProfileRating } from '../api/profileRatingApi'
 import { getUserAuthData } from '@/entities/User'
 import { RatingCard } from '@/entities/Rating'
-import { Skeleton } from '@/shared/ui/Skeleton'
-import { Text, TextAlign } from '@/shared/ui/Text'
-import { Card } from '@/shared/ui/Card'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
+import { Text, TextAlign } from '@/shared/ui/deprecated/Text'
+import { Card } from '@/shared/ui/deprecated/Card'
 
 export interface ProfileRatingProps {
   className?: string

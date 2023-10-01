@@ -3,18 +3,19 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/entities/User'
 import { LoginModal } from '@/features/AuthByUserName'
-import { Button, ButtonTheme } from '@/shared/ui/Button'
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextTheme } from '@/shared/ui/Text'
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink'
-import { HStack } from '@/shared/ui/Stack'
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text'
+import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 import { NotificationButton } from '@/features/notificationsButton'
 import { AvatarDropdown } from '@/features/avatarDropdown'
 import cls from './Navbar.module.scss'
 import { getRouteArticleCreate } from '@/shared/const/router'
+import { ToggleFeatures } from '@/shared/lib/features'
 
 interface NavbarProps {
-  className?: string;
+  className?: string
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
@@ -33,16 +34,37 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <header className={classNames(cls.Navbar, {}, [className])}>
-        <Text theme={TextTheme.INVERTED} className={cls.appName} title={t('Article app')} />
-        <div className={cls.navigation}>
-          <AppLink theme={AppLinkTheme.INVERTED} to={getRouteArticleCreate()}>{t('Создать статью')}</AppLink>
-          <HStack gap="16" className={cls.actions}>
-            <NotificationButton />
-            <AvatarDropdown />
-          </HStack>
-        </div>
-      </header>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        off={
+          <header className={classNames(cls.Navbar, {}, [className])}>
+            <Text
+              theme={TextTheme.INVERTED}
+              className={cls.appName}
+              title={t('Article app')}
+            />
+            <div className={cls.navigation}>
+              <AppLink
+                theme={AppLinkTheme.INVERTED}
+                to={getRouteArticleCreate()}>
+                {t('Создать статью')}
+              </AppLink>
+              <HStack gap="16" className={cls.actions}>
+                <NotificationButton />
+                <AvatarDropdown />
+              </HStack>
+            </div>
+          </header>
+        }
+        on={
+          <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+              <HStack gap="16">
+                <NotificationButton />
+                <AvatarDropdown />
+              </HStack>
+          </header>
+        }
+      />
     )
   }
 
@@ -51,8 +73,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
       <Button
         onClick={onOpenModal}
         className={cls.links}
-        theme={ButtonTheme.BACKGROUND_INVERTED}
-      >
+        theme={ButtonTheme.BACKGROUND_INVERTED}>
         {t('Войти')}
       </Button>
       {isAuthOpen && <LoginModal isOpen={isAuthOpen} onClose={onCloseModal} />}
