@@ -8,15 +8,6 @@ const notificationApi = rtkApi.injectEndpoints({
         url: '/notifications',
       }),
     }),
-    // createArticleRecommendation: build.mutation({
-    //   query: limit => ({
-    //     url: '/articles',
-    //     params: {
-    //       _limit: limit,
-    //     },
-    //     method: 'PUT',
-    //   }),
-    // }),
   }),
 })
 

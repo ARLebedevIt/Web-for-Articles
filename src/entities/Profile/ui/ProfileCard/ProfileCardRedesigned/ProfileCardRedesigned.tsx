@@ -115,6 +115,7 @@ export const ProfileCardRedesigned = (props: ProfileCardType) => {
 
   return (
     <Card
+      border='partial'
       paddings="24"
       max>
       <VStack gap="32">

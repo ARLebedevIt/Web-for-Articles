@@ -601,7 +601,11 @@
         "settingsPageHasBeenOpen": false,
         "isArticlePageWasOpened": true
       },
-      "avatar": "https://cdn3.iconfinder.com/data/icons/web-design-and-development-glyph-vol-1/64/web-development-glyph-04-1024.png"
+      "avatar": "https://cdn3.iconfinder.com/data/icons/web-design-and-development-glyph-vol-1/64/web-development-glyph-04-1024.png",
+      "feature": {
+        "isArticleRatingEnabled": true,
+        "isAppRedesigned": false
+      }
     },
     {
       "id": "4",

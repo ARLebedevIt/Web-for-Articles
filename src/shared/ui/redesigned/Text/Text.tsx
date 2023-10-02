@@ -14,16 +14,17 @@ interface TextType {
   text?: string
   variant?: TextVariant
   align?: TextAlign
-  size?: TextSize
+  size?: TextSize,
+  bold?: boolean
   'data-testid'?: string
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3'
 
 const mapSizeToClass: Record<TextSize, string> = {
-  s: 'size_s',
-  m: 'size_m',
-  l: 'size_l',
+  s: cls.size_s,
+  m: cls.size_m,
+  l: cls.size_l,
 }
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
@@ -36,6 +37,7 @@ export const Text = memo((props: TextType) => {
   const {
     className,
     text,
+    bold = false,
     variant = 'primary',
     title,
     align = 'left',
@@ -47,7 +49,7 @@ export const Text = memo((props: TextType) => {
   const sizeClass = mapSizeToClass[size]
 
   return (
-    <div className={classNames(cls.Text, {}, [className, cls[variant], cls[align], sizeClass])}>
+    <div className={classNames(cls.Text, {[cls.bold]: bold}, [className, cls[variant], cls[align], sizeClass])}>
       {title && (
         <HeaderTag data-testid={`${dataTestId}.Header`} className={cls.title}>
           {title}

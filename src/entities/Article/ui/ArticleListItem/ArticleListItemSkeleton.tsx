@@ -1,9 +1,12 @@
 import { memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
 import { ArticleView } from '../../model/consts/consts'
 import cls from './ArticleListItem.module.scss'
-import { Card } from '@/shared/ui/deprecated/Card'
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card'
+import { toggleFeatures } from '@/shared/lib/features'
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card'
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton'
 
 type ArticleListItemSkeletonProps = {
   className?: string
@@ -13,9 +16,27 @@ type ArticleListItemSkeletonProps = {
 export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps) => {
   const { view, className } = props
 
+  const mainClass = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => cls.ArticleListItemRedesigned,
+    off: () => cls.ArticleListItem,
+  })
+
+  const Skeleton = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated,
+  })
+
+  const Card = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => CardRedesigned,
+    off: () => CardDeprecated,
+  })
+  
   if (view === ArticleView.TEMPLATE) {
     return (
-      <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+      <div className={classNames(mainClass, {}, [className, cls[view]])}>
         <Card className={cls.card}>
           <div className={cls.header}>
             <Skeleton border="50%" height={30} width={30} />
@@ -32,7 +53,7 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps
     )
   }
   return (
-    <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+    <div className={classNames(mainClass, {}, [className, cls[view]])}>
       <Card className={cls.card}>
         <div className={cls.imgWrapper}>
           <Skeleton className={cls.img} width={200} height={200} />

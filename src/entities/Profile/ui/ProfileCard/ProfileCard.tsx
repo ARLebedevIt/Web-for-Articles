@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next'
 
 
 import { Currency } from '@/entities/Currency'
@@ -34,9 +33,6 @@ export type ProfileCardType = {
 
 export const ProfileCard = (props: ProfileCardType) => {
   const { className, error, isLoading } = props
-
-  const { t } = useTranslation()
-
   if (isLoading) {
     return (
       <ToggleFeatures

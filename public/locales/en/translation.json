@@ -1,5 +1,8 @@
 {
   "Главная": "Main page",
   "О сайте": "About",
-  "Страница не найдена": "Page not found"
+  "Страница не найдена": "Page not found",
+  "{{count}} просмотров_zero": "{{count}} views",
+  "{{count}} просмотров_one": "{{count}} view",
+  "{{count}} просмотров_other": "{{count}} views"
 }
