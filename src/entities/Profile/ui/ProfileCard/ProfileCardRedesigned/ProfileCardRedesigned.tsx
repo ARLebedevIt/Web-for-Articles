@@ -1,10 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import {
-  Text as TextDeprecated,
-  TextAlign,
-  TextTheme,
-} from '@/shared/ui/deprecated/Text'
-import { Loader } from '@/shared/ui/deprecated/Loader'
+
+
 import { Currency, CurrencySelect } from '@/entities/Currency'
 import { Country, CountrySelect } from '@/entities/Country'
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
@@ -18,15 +14,18 @@ import { Text } from '@/shared/ui/redesigned/Text'
 export const ProfileCardRedesignedError = () => {
   const { t } = useTranslation()
   return (
-    <HStack
-      justify="center">
+    <Card
+      border='partial'
+      max
+      paddings='16'
+      >
       <Text
         align='center'
         title={t('Произошла ошибка при загрузке профиля')}
         variant='error'
         text={t('Обновите страницу')}
       />
-    </HStack>
+    </Card>
   )
 }
 
@@ -89,30 +88,7 @@ export const ProfileCardRedesigned = (props: ProfileCardType) => {
     onChangeCurrency,
   } = props
   const { t } = useTranslation()
-
-  if (isLoading) {
-    return (
-      <HStack
-        justify="center">
-        <Loader />
-      </HStack>
-    )
-  }
-
-  if (error) {
-    return (
-      <HStack
-        justify="center">
-        <TextDeprecated
-          align={TextAlign.CENTER}
-          title={t('Произошла ошибка при загрузке профиля')}
-          theme={TextTheme.ERROR}
-          text={t('Обновите страницу')}
-        />
-      </HStack>
-    )
-  }
-
+  
   return (
     <Card
       border='partial'

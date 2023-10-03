@@ -25,6 +25,7 @@ import { Button } from '@/shared/ui/redesigned/Button'
 import { Input } from '@/shared/ui/redesigned/Input'
 import { Text } from '@/shared/ui/redesigned/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate'
 
 export interface LoginFormType {
   className?: string
@@ -42,7 +43,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormType) => {
   const password = useSelector(getLoginUserPassword)
   const isLoading = useSelector(getLoginIsLoading)
   const error = useSelector(getLoginError)
-
+  const forceUpdate = useForceUpdate()
   const onChangeUserName = useCallback(
     (value: string) => {
       dispatch(loginActions.setUserName(value))
@@ -61,8 +62,9 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormType) => {
     const result = await dispatch(loginByUserName({ password, username }))
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess()
+      forceUpdate()
     }
-  }, [onSuccess, dispatch, password, username])
+  }, [dispatch, password, username, onSuccess, forceUpdate])
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <ToggleFeatures
@@ -92,7 +94,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormType) => {
                 type="text"
               />
               <Button
-                disabled={isLoading}
+                disabledBtn={isLoading}
                 onClick={onLoginClick}
                 variant="outline"
                 className={cls.loginBtn}>
@@ -125,7 +127,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormType) => {
               type="text"
             />
             <ButtonDeprecated
-              disabled={isLoading}
+              disabledBtn={isLoading}
               onClick={onLoginClick}
               theme={ButtonTheme.OUTLINE}
               className={cls.loginBtn}>

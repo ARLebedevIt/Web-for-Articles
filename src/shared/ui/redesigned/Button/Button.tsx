@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, ReactNode, memo } from 'react'
+import React, { ButtonHTMLAttributes, ForwardedRef, ReactNode, forwardRef } from 'react'
 import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
@@ -19,7 +19,7 @@ export interface ButtonTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant
   square?: boolean
   size?: ButtonSize
-  disabled?: boolean
+  disabledBtn?: boolean
   children?: ReactNode
   fullWidth?: boolean
   addonLeft?: ReactNode
@@ -27,7 +27,7 @@ export interface ButtonTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: ButtonColor
 }
 
-export const Button = memo((props: ButtonTypes) => {
+export const Button = forwardRef((props: ButtonTypes, ref: ForwardedRef<HTMLButtonElement>) => {
   const {
     children,
     className,
@@ -35,7 +35,7 @@ export const Button = memo((props: ButtonTypes) => {
     square,
     size = 'm',
     fullWidth,
-    disabled,
+    disabledBtn,
     addonLeft,
     color = 'normal',
     addonRight,
@@ -44,7 +44,7 @@ export const Button = memo((props: ButtonTypes) => {
 
   const mods: Mods = {
     [cls.square]: square,
-    [cls.disabled]: disabled,
+    [cls.disabledBtn]: disabledBtn,
     [cls.fullWidth]: fullWidth,
     [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
   }
@@ -52,8 +52,9 @@ export const Button = memo((props: ButtonTypes) => {
   return (
     <button
       {...otherProps}
+      ref={ref}
       type="button"
-      disabled={disabled}
+      disabled={disabledBtn}
       className={classNames(cls.Button, mods, [
         className,
         cls[variant],

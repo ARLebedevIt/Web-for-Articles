@@ -3,7 +3,7 @@ import { AppImage } from './AppImage'
 import { Skeleton } from '../../deprecated/Skeleton'
 
 const meta = {
-  title: 'shared/AppImage',
+  title: 'shared/AppImageRedesigned',
   component: AppImage,
   tags: ['autodocs'],
 } satisfies Meta<typeof AppImage>

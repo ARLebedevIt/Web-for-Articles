@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { Tabs } from './Tabs'
 
 const meta = {
-  title: 'shared/Tabs',
+  title: 'shared/TabsRedesigned',
   component: Tabs,
   tags: ['autodocs'],
 } satisfies Meta<typeof Tabs>

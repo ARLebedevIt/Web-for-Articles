@@ -23,7 +23,7 @@ export const ArticleCategoryTabs = memo((props: ArticleCategoryTabsProps) => {
       },
       {
         value: ArticleCategoryType.IT,
-        content: t('Айти'),
+        content: t('IT'),
       },
       {
         value: ArticleCategoryType.ECONOMICS,

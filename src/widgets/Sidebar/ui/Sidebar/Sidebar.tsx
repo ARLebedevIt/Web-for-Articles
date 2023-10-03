@@ -1,9 +1,7 @@
 import React, { memo, useMemo, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button'
+import { Button as ButtonDeprecated, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button'
 import { VStack } from '@/shared/ui/redesigned/Stack'
-import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 import cls from './Sidebar.module.scss'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { ThemeSwither } from '@/features/ThemeSwitcher'
@@ -12,6 +10,7 @@ import { ToggleFeatures } from '@/shared/lib/features'
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo'
 import { Icon } from '@/shared/ui/redesigned/Icon'
 import ArrowIcon from '@/shared/assets/icons/redesigned/arrow.svg'
+import { useSidebarItems } from '../../model/selectors/getSidebarItems'
 
 type SidebarTypes = {
   className?: string
@@ -23,13 +22,13 @@ export const Sidebar = memo((props: SidebarTypes) => {
   const onToggle = () => {
     setCollapsed(val => !val)
   }
-  const sidbarItemsList = useSelector(getSidebarItems)
+  const sidbarItemsList = useSidebarItems()
 
   const sidebarList = useMemo(
     () =>
       sidbarItemsList.map(item => (
         <SidebarItem key={item.path} item={item} collapsed={collapsed} />
-      )),
+      )), 
     [collapsed, sidbarItemsList],
   )
 
@@ -71,7 +70,7 @@ export const Sidebar = memo((props: SidebarTypes) => {
           <VStack role="navigation" gap="16" className={cls.items}>
             {sidebarList}
           </VStack>
-          <Button
+          <ButtonDeprecated
             className={cls.collapseBtn}
             data-testid="sidebar_toggle"
             type="button"
@@ -80,7 +79,7 @@ export const Sidebar = memo((props: SidebarTypes) => {
             size={ButtonSize.L}
             theme={ButtonTheme.BACKGROUND_INVERTED}>
             {collapsed ? '>' : '<'}
-          </Button>
+          </ButtonDeprecated>
           <div className={cls.switchers}>
             <ThemeSwither />
             <LangSwitcher />

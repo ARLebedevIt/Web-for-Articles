@@ -6,6 +6,7 @@ import '@/app/styles/index.scss'
 import '@/shared/config/i18n/i18n'
 import { StoreProvider } from '@/app/providers/StoreProvider'
 import App from './app/App'
+import { ForceUpdateProvider } from './shared/lib/render/forceUpdate'
 
 const container = document.getElementById('root')
 
@@ -22,7 +23,9 @@ root.render(
     <StoreProvider>
       <ErrorBoundary>
         <ThemeProvider>
+          <ForceUpdateProvider>
           <App />
+          </ForceUpdateProvider>
         </ThemeProvider>
       </ErrorBoundary>
     </StoreProvider>

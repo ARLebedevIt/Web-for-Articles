@@ -1,6 +1,5 @@
 import { Suspense, memo, useCallback } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { PageLoader } from '@/widgets/PageLoader'
 import { RequireAuth } from './RequireAuth'
 import { AppRoutesProps } from '@/shared/types/router'
 import { routeConfig } from '../config/routeConfig'
@@ -20,7 +19,7 @@ const AppRouter = (props: Props) => {
   }, [])
 
   return (
-    <Suspense fallback={<PageLoader />}>
+    <Suspense fallback={null}>
       <Routes>
         {Object.values(routeConfig).map(renderWithWrapper)}
       </Routes>

@@ -4,7 +4,7 @@ import { Theme } from '@/shared/const/theme'
 import { ListBox } from './ListBox'
 
 const meta = {
-  title: 'shared/ListBox',
+  title: 'shared/ListBoxRedesigned',
   component: ListBox,
   tags: ['autodocs'],
 } satisfies Meta<typeof ListBox>

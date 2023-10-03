@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './MainLayout.module.scss'
 
@@ -10,7 +10,7 @@ type MainLayoutProps = {
   toolbar?: ReactElement
 }
 
-export const MainLayout = (props: MainLayoutProps) => {
+export const MainLayout = memo((props: MainLayoutProps) => {
   const {className, content, header, sidebar, toolbar} = props
   return (
     <div className={classNames(cls.MainLayout, {}, [className])}>
@@ -22,4 +22,4 @@ export const MainLayout = (props: MainLayoutProps) => {
       </div>
     </div>
   )
-}
+})

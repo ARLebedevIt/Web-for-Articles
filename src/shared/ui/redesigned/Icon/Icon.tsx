@@ -45,7 +45,6 @@ export const Icon = (props: IconProps) => {
   )
 
   if (clickable) {
-    // eslint-disable-next-line react/destructuring-assignment
     return (
       <button
         style={{ width, height }}

@@ -95,7 +95,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
           alt={article.title}
         />
         <VStack gap="4" className={cls.info}>
-          <Text text={article.title} className={cls.title} />
+          <Text text={article.title} bold className={cls.title} />
           <VStack gap="4" max className={cls.footer}>
             <HStack justify="between" max>
               <Text text={article.createdAt} />

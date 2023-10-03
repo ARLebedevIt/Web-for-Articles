@@ -66,7 +66,6 @@ export const RatingCard = memo((props: RatingCardProps) => {
     setIsModalOpen(false)
     onCancel?.(starsCount)
   }, [onCancel, starsCount])
-  console.log(feedback)
 
   const modalContent = (
     <ToggleFeatures

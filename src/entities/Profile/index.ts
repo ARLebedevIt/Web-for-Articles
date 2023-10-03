@@ -1,7 +1,5 @@
-export type {
-  Profile,
-} from './model/type/profile'
-
-export {
-  ProfileCard,
-} from './ui/ProfileCard/ProfileCard'
+export type { Profile } from './model/type/profile'
+export { ProfileCard } from './ui/ProfileCard/ProfileCard'
+export { getProfileData } from './model/selectors/getProfileData/getProfileData'
+export { getProfileError } from './model/selectors/getProfileError/getProfileError'
+export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading'

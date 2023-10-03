@@ -7,7 +7,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { Currency } from '@/entities/Currency'
 import { Country } from '@/entities/Country'
 import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text'
-import { ProfileCard } from '@/entities/Profile'
+import { ProfileCard, getProfileError, getProfileIsLoading } from '@/entities/Profile'
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -15,8 +15,6 @@ import {
 import { VStack } from '@/shared/ui/redesigned/Stack'
 import { ValidateProfileError } from '../../model/consts/consts'
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
-import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError'
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData'

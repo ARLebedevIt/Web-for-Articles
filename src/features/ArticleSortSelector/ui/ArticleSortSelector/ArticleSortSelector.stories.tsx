@@ -15,6 +15,6 @@ type Story = StoryObj<typeof meta>;
 export const Light: Story = {
   args: {
     order: 'desc',
-    sort: ArticleSortFields.CREATED,
+    sort: ArticleSortFields.TITLE,
   },
 }

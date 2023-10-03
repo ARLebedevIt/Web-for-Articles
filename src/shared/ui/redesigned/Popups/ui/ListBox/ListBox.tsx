@@ -52,10 +52,9 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
   return (
     <HStack gap="4">
       {label && (
-        <span
-          className={classNames(cls.label, mods, [
-            className,
-          ])}>{label}</span>
+        <span className={classNames(cls.label, mods, [className])}>
+          {label}
+        </span>
       )}
       <HListBox
         disabled={readonly}
@@ -63,13 +62,13 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
         className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
         value={value}
         onChange={onChange}>
-        <HListBox.Button as="div" className={popupCls.trigger}>
-          <Button
-            addonRight={<Icon Svg={ArrowIcon} />}
-            variant="filled"
-            disabled={readonly}>
-            {selectedItem?.content ?? defaultValue}
-          </Button>
+        <HListBox.Button
+          as={Button}
+          addonRight={<Icon Svg={ArrowIcon} />}
+          variant="filled" 
+          // disabled={readonly}
+          className={popupCls.trigger}>
+          {selectedItem?.content ?? defaultValue}
         </HListBox.Button>
         <HListBox.Options
           className={classNames(cls.options, {}, optionsClasses)}>

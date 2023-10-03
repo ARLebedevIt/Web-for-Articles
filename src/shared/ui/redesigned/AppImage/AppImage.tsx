@@ -1,6 +1,7 @@
 import {
   ImgHTMLAttributes,
   ReactElement,
+  forwardRef,
   useLayoutEffect,
   useState,
 } from 'react'
@@ -11,7 +12,7 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   errorFallback?: ReactElement
 }
 
-export const AppImage = (props: AppImageProps) => {
+export const AppImage = forwardRef((props: AppImageProps, ref: React.ForwardedRef<HTMLImageElement>) => {
   const {
     className,
     src,
@@ -43,5 +44,5 @@ export const AppImage = (props: AppImageProps) => {
     return errorFallback
   }
 
-  return <img className={className} src={src} alt={alt} {...otherProps} />
-}
+  return <img className={className} ref={ref} src={src} alt={alt} {...otherProps} />
+})

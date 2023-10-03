@@ -4,7 +4,7 @@ import { Theme } from '@/shared/const/theme'
 import { Text } from './Text'
 
 const meta = {
-  title: 'shared/Text',
+  title: 'shared/TextRedesigned',
   component: Text,
   tags: ['autodocs'],
 } satisfies Meta<typeof Text>

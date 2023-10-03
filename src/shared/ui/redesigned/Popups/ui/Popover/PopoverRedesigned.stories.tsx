@@ -5,7 +5,7 @@ import { Theme } from '@/shared/const/theme'
 import { Popover } from './Popover'
 
 const meta = {
-  title: 'shared/Popover',
+  title: 'shared/PopoverRedesigned',
   component: Popover,
   tags: ['autodocs'],
 } satisfies Meta<typeof Popover>

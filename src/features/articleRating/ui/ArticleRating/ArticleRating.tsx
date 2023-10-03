@@ -4,7 +4,9 @@ import { useSelector } from 'react-redux'
 import { RatingCard } from '@/entities/Rating'
 import { useGetArticleRating, useSetArticleRating } from '../../api/articleRatingApi'
 import { getUserAuthData } from '@/entities/User'
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton'
 
 export type ArticleRatingProps = {
   className?: string
@@ -40,7 +42,17 @@ const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
   }, [handleRateArticle])
 
   if (isLoading) {
-    return <Skeleton width="100%" height={120} />
+    return (
+      <ToggleFeatures
+      feature='isAppRedesigned'
+      on={
+        <SkeletonRedesigned  width="100%" height={120} />
+      }
+      off={
+        <SkeletonDeprecated width="100%" height={120} />
+      }
+      />
+    )
   }
 
   const rating = data?.[0]

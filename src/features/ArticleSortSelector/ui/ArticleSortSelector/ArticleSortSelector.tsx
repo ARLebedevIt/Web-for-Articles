@@ -36,10 +36,6 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 
   const sortFieldOptions = useMemo<SelectOptions<ArticleSortFields>[]>(() => [
     {
-      value: ArticleSortFields.CREATED,
-      content: t('Дате создания'),
-    },
-    {
       value: ArticleSortFields.TITLE,
       content: t('Заголовку'),
     },

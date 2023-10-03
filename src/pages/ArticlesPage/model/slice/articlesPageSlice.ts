@@ -30,7 +30,7 @@ const articlesPageSlice = createSlice({
     _inited: false,
     limit: 9,
     search: '',
-    sort: ArticleSortFields.CREATED,
+    sort: ArticleSortFields.TITLE,
     order: 'asc',
     category: ArticleCategoryType.ALL,
   }),

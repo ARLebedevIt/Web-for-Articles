@@ -4,7 +4,7 @@ import { Theme } from '@/shared/const/theme'
 import { Modal } from './Modal'
 
 const meta = {
-  title: 'shared/Modal',
+  title: 'shared/ModalRedesigned',
   component: Modal,
   tags: ['autodocs'],
 } satisfies Meta<typeof Modal>

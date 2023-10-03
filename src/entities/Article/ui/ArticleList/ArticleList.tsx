@@ -3,7 +3,7 @@ import React, { HTMLAttributeAnchorTarget, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { VirtuosoGrid } from 'react-virtuoso'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextSize } from '@/shared/ui/deprecated/Text'
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text'
 import { Article } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import cls from './ArticleList.module.scss'
@@ -11,6 +11,8 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import { ArticleView } from '../../model/consts/consts'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { HStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
+import { Card } from '@/shared/ui/redesigned/Card'
 
 type ArticleListProps = {
   className?: string
@@ -68,7 +70,17 @@ export const ArticleList = memo((props: ArticleListProps) => {
   if (!isLoading && !articles.length) {
     return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        <Text size={TextSize.L} title={t('Статьи не найдены')} />
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={
+          <Card border='partial' max>
+            <Text align='center' size="l" title={t('Статьи не найдены')} />
+          </Card>
+        }
+          off={
+            <TextDeprecated size={TextSize.L} title={t('Статьи не найдены')} />
+          }
+        />
       </div>
     )
   }

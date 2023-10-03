@@ -4,7 +4,7 @@ import { Theme } from '@/shared/const/theme'
 import { Button, ButtonSize, ButtonTheme } from '../../deprecated/Button'
 
 const meta = {
-  title: 'shared/Button',
+  title: 'shared/ButtonRedesigned',
   component: Button,
   tags: ['autodocs'],
   parameters: {
@@ -115,6 +115,6 @@ export const Disabled: Story = {
   args: {
     children: '>',
     theme: ButtonTheme.OUTLINE,
-    disabled: true,
+    disabledBtn: true,
   },
 }

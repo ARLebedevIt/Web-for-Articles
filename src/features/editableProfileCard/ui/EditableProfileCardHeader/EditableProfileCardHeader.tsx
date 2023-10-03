@@ -10,13 +10,13 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { getUserAuthData } from '@/entities/User'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 import { profileActions } from '../../model/slice/profileSlice'
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
-import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { Button } from '@/shared/ui/redesigned/Button'
 import { Text } from '@/shared/ui/redesigned/Text'
 import { Card } from '@/shared/ui/redesigned/Card'
+import { getProfileData } from '@/entities/Profile'
+import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
 
 type EditableProfileCardHeaderProps = {}
 

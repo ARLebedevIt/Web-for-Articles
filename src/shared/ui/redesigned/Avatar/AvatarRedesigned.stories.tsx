@@ -3,7 +3,7 @@ import storybook from '@/shared/assets/tests/storybook.png'
 import { Avatar } from './Avatar'
 
 const meta = {
-  title: 'shared/Avatar',
+  title: 'shared/AvatarRedesigned',
   component: Avatar,
   tags: ['autodocs'],
 } satisfies Meta<typeof Avatar>

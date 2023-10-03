@@ -48,10 +48,10 @@ export const ListBox = (props: ListBoxProps) => {
         className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
         value={value}
         onChange={onChange}>
-        <HListBox.Button as="div" className={popupCls.trigger}>
-          <Button disabled={readonly}>
+        <HListBox.Button as={Button} 
+        // disabled={readonly} 
+        className={popupCls.trigger}>
             {value || defaultValue}
-          </Button>
         </HListBox.Button>
         <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
           {items?.map(item => (
