@@ -1,8 +1,12 @@
 {
-  "Главная": "Main page",
-  "О сайте": "About",
+  "Отправить": "Send",
+  "Введите текст комментария": "Enter the comment text",
+  "Комментарии отсутствуют": "There are no comments",
+  "Закрыть": "Close",
+  "Спасибо за оценку!": "Thanks for the rating!",
+  "Ваш отзыв": "Your feedback",
   "Страница не найдена": "Page not found",
-  "{{count}} просмотров_zero": "{{count}} views",
-  "{{count}} просмотров_one": "{{count}} view",
-  "{{count}} просмотров_other": "{{count}} views"
+  "Произошла непредвиденная ошибка": "An unexpected error has occurred",
+  "Обновить страницу": "Refresh the page",
+  "Отменить изменения": "Undo Changes"
 }

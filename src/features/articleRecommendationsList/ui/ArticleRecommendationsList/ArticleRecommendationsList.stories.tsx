@@ -3,6 +3,8 @@ import { rest } from 'msw'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { Article } from '@/entities/Article'
 import { ArticleRecommendationsList } from './ArticleRecommendationsList'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
 const meta = {
   title: 'features/ArticleRecommendationsList',
@@ -26,7 +28,7 @@ const article: Article = {
   subtitle: 'test story',
 }
 
-export const Light: Story = {
+export const Default: Story = {
   parameters: {
     msw: [
       rest.get(`${__API__}/articles?_limit=3`, (_req, res, ctx) => {
@@ -38,4 +40,17 @@ export const Light: Story = {
     ],
   },
   decorators: [StoreDecorator({})],
+}
+export const DefaultRedesigned: Story = {
+  parameters: {
+    msw: [
+      rest.get(`${__API__}/articles?_limit=3`, (_req, res, ctx) => {
+        return res(ctx.json([
+          { ...article, id: '1' },
+          { ...article, id: '2' },
+          { ...article, id: '3' }]))
+      }),
+    ],
+  },
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }

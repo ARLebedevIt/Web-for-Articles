@@ -19,7 +19,7 @@ import cls from './ArticleListItemRedesigned.module.scss'
 
 export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
   const { article, view, className, target } = props
-  const { t } = useTranslation()
+  const { t } = useTranslation('articles')
 
   const views = (
     <HStack gap="8" className={cls.views}>
@@ -30,13 +30,13 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
 
   const userInfo = (
     <>
-      <Avatar size={32} src={article.user.avatar} className={cls.avatar} />
-      <Text bold text={article.user.username} />
+      <Avatar size={32} src={article?.user?.avatar} className={cls.avatar} />
+      <Text bold text={article?.user?.username} />
     </>
   )
 
   if (view === ArticleView.TEMPLATE) {
-    const textBlock = article.blocks.find(
+    const textBlock = article?.blocks?.find(
       block => block.type === ArticleBlockType.TEXT,
     ) as ArticleTextBlock
     return (
@@ -65,7 +65,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
             />
           )}
           <HStack max justify="between">
-            <AppLink to={getRouteArticlesDetails(article.id)}>
+            <AppLink to={getRouteArticlesDetails(article?.id)}>
               <Button
                 data-testid="ArticleListItem.ReadMore.Btn"
                 variant="outline">
@@ -82,7 +82,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
     <AppLink
       data-testid="ArticleListItem"
       target={target}
-      to={getRouteArticlesDetails(article.id)}
+      to={getRouteArticlesDetails(article?.id)}
       className={classNames(cls.ArticleListItemRedesigned, {}, [
         className,
         cls[view],

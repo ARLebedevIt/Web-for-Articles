@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
 import { ListBox } from './ListBox'
 
 const meta = {
@@ -24,7 +22,6 @@ export const TopLeft: Story = {
     defaultValue: 'Введите значение',
     direction: 'top left',
   },
-  decorators: [ThemeDecorator(Theme.CRIMSON)],
 }
 
 export const WithValue: Story = {
@@ -66,7 +63,6 @@ export const TopRight: Story = {
     defaultValue: 'Введите значение',
     direction: 'top right',
   },
-  decorators: [ThemeDecorator(Theme.CRIMSON)],
 }
 
 export const BottomRight: Story = {
@@ -81,7 +77,6 @@ export const BottomRight: Story = {
     defaultValue: 'Введите значение',
     direction: 'bottom right',
   },
-  decorators: [ThemeDecorator(Theme.CRIMSON)],
 }
 
 export const BottomLeft: Story = {
@@ -96,5 +91,4 @@ export const BottomLeft: Story = {
     defaultValue: 'Введите значение',
     direction: 'bottom left',
   },
-  decorators: [ThemeDecorator(Theme.CRIMSON), Story => <div style={{ padding: '100px' }}><Story /></div>],
 }

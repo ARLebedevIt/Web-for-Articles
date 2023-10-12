@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
 import { Text, TextSize, TextTheme } from './Text'
 
 const meta = {
@@ -13,7 +11,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     text: 'Text Example',
     title: 'Title Example',
@@ -32,35 +30,12 @@ export const OnylText: Story = {
   },
 }
 
-export const PrimaryDark: Story = {
-  args: {
-    text: 'Text Example',
-    title: 'Title Example',
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-}
-
-export const OnlyTitleDark: Story = {
-  args: {
-    title: 'Title only',
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-}
-
-export const OnylTextDark: Story = {
-  args: {
-    text: 'Text only',
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-}
-
 export const Error: Story = {
   args: {
     text: 'Error',
     title: 'Error',
     theme: TextTheme.ERROR,
   },
-  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const WithSizeL: Story = {

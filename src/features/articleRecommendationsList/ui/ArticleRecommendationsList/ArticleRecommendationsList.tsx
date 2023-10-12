@@ -15,7 +15,7 @@ interface ArticleRecommendationsListProps {
 
 export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
   const { className } = props
-  const { t } = useTranslation()
+  const { t } = useTranslation('article-details')
   const { isLoading, data: articles, error } = useArticleRecommendationsList(3)
 
   if (isLoading || error || !articles) {
@@ -34,7 +34,6 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
         }
       />
       <ArticleList
-        virtualized={false}
         target="_blank"
         articles={articles}
         isLoading={isLoading} />

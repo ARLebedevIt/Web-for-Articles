@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
 import { ArticleListItem } from './ArticleListItem'
 import { Article } from '../../model/types/article'
 import { ArticleBlockType, ArticleCategoryType, ArticleView } from '../../model/consts/consts'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
 
 const meta = {
   title: 'entities/ArticleListItem',
@@ -55,30 +55,6 @@ const article: Article = {
   ],
 }
 
-export const Light: Story = {
-  args: {
-    article,
-    view: ArticleView.GRID,
-  },
-  decorators: [ThemeDecorator(Theme.LIGHT)],
-}
-
-export const Dark: Story = {
-  args: {
-    article,
-    view: ArticleView.GRID,
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-}
-
-export const Crimson: Story = {
-  args: {
-    article,
-    view: ArticleView.GRID,
-  },
-  decorators: [ThemeDecorator(Theme.CRIMSON)],
-}
-
 export const ViewTemplate: Story = {
   args: {
     article,
@@ -92,3 +68,21 @@ export const ViewGrid: Story = {
     view: ArticleView.GRID,
   },
 }
+
+export const ViewTemplateRedesigned: Story = {
+  args: {
+    article,
+    view: ArticleView.TEMPLATE,
+  },
+  decorators: [ThemeDecorator('redesigned'), FeatureFlagsDecorator({isAppRedesigned: true})],
+}
+
+export const ViewGridRedesigned: Story = {
+  args: {
+    article,
+    view: ArticleView.GRID,
+  },
+  decorators: [ThemeDecorator('redesigned'), FeatureFlagsDecorator({isAppRedesigned: true})],
+}
+
+

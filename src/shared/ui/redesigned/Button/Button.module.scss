@@ -39,12 +39,12 @@
   border-radius: 34px;
   outline: none;
 
-  &:hover{
-    border: 2px solid var(--accent-redesigned);
-  }
-
   &.normal {
     border: 2px solid var(--icon-redesigned);
+  }
+
+  &:hover{
+    border: 2px solid var(--accent-redesigned);
   }
 
   &.error {

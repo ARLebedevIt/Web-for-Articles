@@ -13,7 +13,7 @@ interface ArticleCategoryTabsProps {
 }
 
 export const ArticleCategoryTabs = memo((props: ArticleCategoryTabsProps) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('articles')
   const { value, className, onChangeCategory } = props
   const categoryTabs = useMemo<TabItem<ArticleCategoryType>[]>(
     () => [

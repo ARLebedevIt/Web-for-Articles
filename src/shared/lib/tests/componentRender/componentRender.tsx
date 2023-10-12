@@ -25,7 +25,7 @@ interface TestProviderProps {
 
 export function TestProvider(props: TestProviderProps) {
   const { children, options = {}} = props
-  const { route = '/', initialState, asyncReducers, theme = Theme.CRIMSON } = options
+  const { route = '/', initialState, asyncReducers, theme = Theme.DARK } = options
 
   return (
     <MemoryRouter initialEntries={[route]}>

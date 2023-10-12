@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react'
+import { Fragment, ReactNode, useMemo } from 'react'
 import { Listbox as HListBox } from '@headlessui/react'
 import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 import { DropdownDirection } from '../../../../../types/ui'
@@ -36,6 +36,11 @@ export const ListBox = (props: ListBoxProps) => {
 
   const optionsClasses = [mapDirection[direction]]
 
+  const selectedItem = useMemo(() => {
+    return items?.find(item => item.value === value)
+  }, [items, value])
+
+
   const mods: Mods = {
     [cls.readOnly]: readonly,
   }
@@ -49,9 +54,8 @@ export const ListBox = (props: ListBoxProps) => {
         value={value}
         onChange={onChange}>
         <HListBox.Button as={Button} 
-        // disabled={readonly} 
         className={popupCls.trigger}>
-            {value || defaultValue}
+          {selectedItem?.content || defaultValue}
         </HListBox.Button>
         <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
           {items?.map(item => (

@@ -1,14 +1,21 @@
 import { memo } from 'react'
-import { useTranslation } from 'react-i18next'
 import { Page } from '@/widgets/Page'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { AboutPageRedesigned } from './AboutPageRedesigned/AboutPageRedesigned'
+import { AboutPageDeprecated } from './AboutPageDeprecated/AboutPageDeprecated'
 
-type Props = {}
-
-const AboutPage = memo((props: Props) => {
-  const { t } = useTranslation()
+const AboutPage = memo(() => {
   return (
     <Page data-testid="AboutPage">
-      {t('О сайте')}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <AboutPageRedesigned />
+        }
+        off={
+          <AboutPageDeprecated />
+        }
+      />
     </Page>
   )
 })

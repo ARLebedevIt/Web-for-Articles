@@ -22,7 +22,7 @@ type EditableProfileCardHeaderProps = {}
 
 export const EditableProfileCardHeader = memo(
   (props: EditableProfileCardHeaderProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('profile')
     const readOnly = useSelector(getProfileReadOnly)
     const dispatch = useAppDispatch()
     const authData = useSelector(getUserAuthData)
@@ -53,8 +53,7 @@ export const EditableProfileCardHeader = memo(
                 {readOnly ? (
                   <Button
                     onClick={onEdit}
-                    data-testid="EditableProfileCardHeader.EditBtn"
-                    variant="outline">
+                    data-testid="EditableProfileCardHeader.EditBtn">
                     {t('Редактировать')}
                   </Button>
                 ) : (

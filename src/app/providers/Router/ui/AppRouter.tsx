@@ -4,9 +4,7 @@ import { RequireAuth } from './RequireAuth'
 import { AppRoutesProps } from '@/shared/types/router'
 import { routeConfig } from '../config/routeConfig'
 
-type Props = {}
-
-const AppRouter = (props: Props) => {
+const AppRouter = () => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
     const { element } = route
     return (

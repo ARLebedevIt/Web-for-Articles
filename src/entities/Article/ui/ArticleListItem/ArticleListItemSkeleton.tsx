@@ -49,7 +49,7 @@ export const ArticleListItemSkeleton = memo(
           <ToggleFeatures
             feature="isAppRedesigned"
             on={
-              <CardRedesigned border="round" className={cls.card}>
+              <CardRedesigned border="partial" paddings='24' className={cls.card}>
                 {cardContent}
               </CardRedesigned>
             }
@@ -70,8 +70,8 @@ export const ArticleListItemSkeleton = memo(
           on={
             <Skeleton
               width="100%"
-              height={150}
-              border="32px"
+              height={140}
+              border="20px"
               className={cls.img}
             />
           }
@@ -93,7 +93,7 @@ export const ArticleListItemSkeleton = memo(
         <ToggleFeatures
           feature="isAppRedesigned"
           on={
-            <CardRedesigned border="round" className={cls.card}>
+            <CardRedesigned paddings='0' border="partial" className={cls.card}>
               {cardContent}
             </CardRedesigned>
           }

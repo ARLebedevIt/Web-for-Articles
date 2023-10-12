@@ -19,12 +19,12 @@ import { ArticleTextBlock } from '../../../model/types/article'
 
 export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
   const { article, view, className, target } = props
-  const { t } = useTranslation()
+  const { t } = useTranslation('articles')
 
   const category = (
     <Text
       data-testid="ArticleListItem.Catergory"
-      text={article.category.join(', ')}
+      text={article?.category?.join(', ')}
       className={cls.category}
     />
   )
@@ -36,7 +36,7 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
   )
 
   if (view === ArticleView.TEMPLATE) {
-    const textBlock = article.blocks.find(
+    const textBlock = article?.blocks?.find(
       block => block.type === ArticleBlockType.TEXT,
     ) as ArticleTextBlock
     return (
@@ -44,8 +44,8 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
         data-testid="ArticleListItem"
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
           <div className={cls.header}>
-            <Avatar size={30} src={article.user.avatar} />
-            <Text text={article.user.username} className={cls.username} />
+            <Avatar size={30} src={article?.user?.avatar} />
+            <Text text={article?.user?.username} className={cls.username} />
             <Text text={article.createdAt} className={cls.date} />
           </div>
           <Text title={article.title} className={cls.title} />
@@ -63,7 +63,7 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
             />
           )}
           <div className={cls.footer}>
-            <AppLink to={getRouteArticlesDetails(article.id)}>
+            <AppLink to={getRouteArticlesDetails(article?.id)}>
               <Button
                 data-testid="ArticleListItem.ReadMore.Btn"
                 theme={ButtonTheme.OUTLINE}>
@@ -79,7 +79,7 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
     <AppLink
       data-testid="ArticleListItem"
       target={target}
-      to={getRouteArticlesDetails(article.id)}
+      to={getRouteArticlesDetails(article?.id)}
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
       <Card className={cls.card}>
         <div className={cls.imgWrapper}>

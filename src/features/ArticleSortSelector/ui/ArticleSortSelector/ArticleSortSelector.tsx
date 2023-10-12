@@ -21,7 +21,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   const {
     className, onChangeOrder, onChangeSort, order, sort,
   } = props
-  const { t } = useTranslation()
+  const { t } = useTranslation('articles')
 
   const orderOptions = useMemo<SelectOptions<SortOrder>[]>(() => [
     {
@@ -50,7 +50,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     feature='isAppRedesigned'
     on={
       <VStack data-testid='ArticleSortSelector' gap="8" className={classNames('', {}, [className])}>
-      <Text text={t('Сортировать по:')} />
+      <Text text={`${t('Сортировать по')}:`} />
       <ListBox items={sortFieldOptions} value={sort} onChange={onChangeSort} />
       <ListBox items={orderOptions} value={order} onChange={onChangeOrder} />
     </VStack>
@@ -58,7 +58,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     off={
       <HStack data-testid='ArticleSortSelector' gap="16" className={classNames('', {}, [className])}>
       <Select options={sortFieldOptions} label={t('Сортировать по')} value={sort} onChange={onChangeSort} />
-      <Select options={orderOptions} label={t('по')} value={order} onChange={onChangeOrder} />
+      <Select options={orderOptions} value={order} onChange={onChangeOrder} />
     </HStack>
     }
     />

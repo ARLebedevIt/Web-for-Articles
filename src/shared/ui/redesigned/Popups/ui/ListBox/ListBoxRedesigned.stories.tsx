@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
 import { ListBox } from './ListBox'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 const meta = {
   title: 'shared/ListBoxRedesigned',
@@ -24,7 +25,7 @@ export const TopLeft: Story = {
     defaultValue: 'Введите значение',
     direction: 'top left',
   },
-  decorators: [ThemeDecorator(Theme.CRIMSON)],
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }
 
 export const WithValue: Story = {
@@ -38,6 +39,7 @@ export const WithValue: Story = {
     defaultValue: 'Введите значение',
     value: 'test1',
   },
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }
 
 export const ReadOnly: Story = {
@@ -52,6 +54,7 @@ export const ReadOnly: Story = {
     defaultValue: 'Введите значение',
     readonly: true,
   },
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }
 
 export const TopRight: Story = {
@@ -66,7 +69,7 @@ export const TopRight: Story = {
     defaultValue: 'Введите значение',
     direction: 'top right',
   },
-  decorators: [ThemeDecorator(Theme.CRIMSON)],
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }
 
 export const BottomRight: Story = {
@@ -81,7 +84,7 @@ export const BottomRight: Story = {
     defaultValue: 'Введите значение',
     direction: 'bottom right',
   },
-  decorators: [ThemeDecorator(Theme.CRIMSON)],
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }
 
 export const BottomLeft: Story = {
@@ -96,5 +99,5 @@ export const BottomLeft: Story = {
     defaultValue: 'Введите значение',
     direction: 'bottom left',
   },
-  decorators: [ThemeDecorator(Theme.CRIMSON), Story => <div style={{ padding: '100px' }}><Story /></div>],
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }

@@ -43,6 +43,9 @@ const reducers: ReducersList = {
 
 const DeprecatedComponent = () => {
   const article = useSelector(getArticleDetailsData)
+  if (!article?.blocks) {
+    return null
+  }
   return (
     <>
       <HStack justify="center" max className={cls.avatarWrapper}>
@@ -64,14 +67,16 @@ const DeprecatedComponent = () => {
           <TextDeprecated text={article?.createdAt} />
         </HStack>
       </VStack>
-      {article?.blocks.map(renderArticleBlock)}
+      {article?.blocks.map(item => renderArticleBlock(item))}
     </>
   )
 }
 
 const Redesigned = () => {
   const article = useSelector(getArticleDetailsData)
-
+  if (!article?.blocks) {
+    return null
+  }
   return (
     <>
       <Text title={article?.title} size="l" bold />
@@ -83,7 +88,7 @@ const Redesigned = () => {
         src={article?.img}
         className={cls.img}
       />
-      {article?.blocks.map(renderArticleBlock)}
+      {article?.blocks.map(item => renderArticleBlock(item))}
     </>
   )
 }
@@ -110,8 +115,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const dispatch = useAppDispatch()
   const isLoading = useSelector(getArticleDetailsIsLoading)
   const error = useSelector(getArticleDetailsError)
-  const { t } = useTranslation()
-
+  const { t } = useTranslation('article-details')
+  
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
       dispatch(fetchArticleById(id))
@@ -124,10 +129,22 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     content = <ArticleDetailsSkeleton />
   } else if (error) {
     content = (
-      <TextDeprecated
+      <ToggleFeatures
+      feature='isAppRedesigned'
+      on={
+        <Text
         align={TextAlign.CENTER}
         title={t('Произошла ошибка при загрузке статьи')}
       />
+      }
+      off={
+        <TextDeprecated
+        align={TextAlign.CENTER}
+        title={t('Произошла ошибка при загрузке статьи')}
+      />
+      }
+      />
+
     )
   } else {
     content = (

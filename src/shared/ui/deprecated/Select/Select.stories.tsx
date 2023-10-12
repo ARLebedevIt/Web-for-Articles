@@ -11,13 +11,12 @@ export default meta
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     label: 'Test',
     options: [
       { value: '123', content: 'Первый пункт' },
       { value: 'qwe', content: 'Второй пункт' },
-
     ],
   },
 }

@@ -8,7 +8,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Drawer } from '@/shared/ui/redesigned/Drawer'
 
 export const ArticlePageGreeting = memo(() => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('articles')
 
   const [isOpen, setIsOpen] = useState(false)
   const { isArticlePageWasOpened } = useJsonSettings()

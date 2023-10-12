@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
 import { CommentList } from './CommentList'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
 
 const meta = {
   title: 'entities/CommentList',
@@ -13,7 +13,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {
+export const Default: Story = {
   args: {
     comments: [
       {
@@ -28,42 +28,6 @@ export const Light: Story = {
       },
     ],
   },
-}
-
-export const Dark: Story = {
-  args: {
-    comments: [
-      {
-        id: '1',
-        text: 'comment 1',
-        user: { id: '1', username: 'user 1' },
-      },
-      {
-        id: '2',
-        text: 'comment 2',
-        user: { id: '2', username: 'user 2' },
-      },
-    ],
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-}
-
-export const Crimson: Story = {
-  args: {
-    comments: [
-      {
-        id: '1',
-        text: 'comment 1',
-        user: { id: '1', username: 'user 1' },
-      },
-      {
-        id: '2',
-        text: 'comment 2',
-        user: { id: '2', username: 'user 2' },
-      },
-    ],
-  },
-  decorators: [ThemeDecorator(Theme.CRIMSON)],
 }
 
 export const LoadingList: Story = {
@@ -71,5 +35,32 @@ export const LoadingList: Story = {
     isLoading: true,
     comments: [],
   },
-  decorators: [ThemeDecorator(Theme.CRIMSON)],
 }
+
+export const DefaultRedesigned: Story = {
+  args: {
+    comments: [
+      {
+        id: '1',
+        text: 'comment 1',
+        user: { id: '1', username: 'user 1' },
+      },
+      {
+        id: '2',
+        text: 'comment 2',
+        user: { id: '2', username: 'user 2' },
+      },
+    ],
+  },
+  decorators: [ThemeDecorator('redesigned'), FeatureFlagsDecorator({isAppRedesigned: true})],
+}
+
+export const LoadingListRedesigned: Story = {
+  args: {
+    isLoading: true,
+    comments: [],
+  },
+  decorators: [ThemeDecorator('redesigned'), FeatureFlagsDecorator({isAppRedesigned: true})],
+}
+
+

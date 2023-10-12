@@ -11,16 +11,16 @@ import { Loader } from "@/shared/ui/deprecated/Loader"
 import {Text as TextDeprecated, TextAlign, TextTheme } from "@/shared/ui/deprecated/Text"
 
 export const ProfileCardDeprecatedError = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('profile')
   return (
     <HStack
       justify="center"
       className={classNames(cls.ProfileCard, {}, [cls.error])}>
       <TextDeprecated
         align={TextAlign.CENTER}
-        title={t('Произошла ошибка при загрузке профиля')}
+        title={t('Профиль не найден')}
         theme={TextTheme.ERROR}
-        text={t('Обновите страницу')}
+        text={t('Попробуйте обновить страницу')}
       />
     </HStack>
   )
@@ -50,7 +50,7 @@ export const DeprecatedProfileCard = (props: ProfileCardType) => {
     onChangeCountry,
     onChangeCurrency,
   } = props
-  const { t } = useTranslation()
+  const { t } = useTranslation('profile')
 
   const mods: Mods = {
     [cls.editing]: !readOnly,
@@ -71,20 +71,20 @@ export const DeprecatedProfileCard = (props: ProfileCardType) => {
         onChange={onChangeFirstName}
         readOnly={readOnly}
         value={data?.first}
-        placeholder={t('Ваше имя')}
+        placeholder={t('Имя')}
       />
       <InputDeprecated
         data-testid="ProfileCard.LastName"
         onChange={onChangeLastName}
         readOnly={readOnly}
         value={data?.lastname}
-        placeholder={t('Ваша фамилия')}
+        placeholder={t('Фамилия')}
       />
       <InputDeprecated
         onChange={onChangeAge}
         readOnly={readOnly}
         value={data?.age}
-        placeholder={t('Ваш возраст')}
+        placeholder={t('Возраст')}
       />
       <InputDeprecated
         onChange={onChangeCity}

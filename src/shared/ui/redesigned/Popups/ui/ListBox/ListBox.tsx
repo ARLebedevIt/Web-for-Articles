@@ -66,7 +66,6 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
           as={Button}
           addonRight={<Icon Svg={ArrowIcon} />}
           variant="filled" 
-          // disabled={readonly}
           className={popupCls.trigger}>
           {selectedItem?.content ?? defaultValue}
         </HListBox.Button>

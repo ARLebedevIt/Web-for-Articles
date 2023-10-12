@@ -1,3 +1,4 @@
+
 .views {
   display: flex;
   gap: 10px;
@@ -44,7 +45,6 @@
 }
 
 .GRID {
-  width: 230px;
   transition: 0.3s;
   cursor: pointer;
 
@@ -53,15 +53,6 @@
     right: 0;
     top: 0;
     display: none;
-  }
-
-  &:hover {
-    opacity: .8;
-    transform: scale(1.04);
-
-    .date {
-      display: block;
-    }
   }
 
   .imgWrapper {
@@ -107,10 +98,15 @@
     width: 100%;
   }
 
-  &.GRID {
+  &.GRID {    
     .card {
-      height: 350px;
-      width: 240px;
+      overflow: hidden;
+      width: 220px;
+      height: 330px;
+    }
+
+    .infoWrapper, .title {
+      margin-left: 8px;
     }
   }
 }

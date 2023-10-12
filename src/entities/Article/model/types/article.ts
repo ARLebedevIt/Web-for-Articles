@@ -24,13 +24,13 @@ export interface ArticleCodeBlock extends ArticleBlockBase {
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock
 
 export interface Article {
-  id: string,
-  user: User,
-  title: string
-  subtitle: string
-  img: string
-  views: number
-  createdAt: string
-  category: ArticleCategoryType[]
-  blocks: ArticleBlock[]
+  id?: string,
+  user?: User,
+  title?: string
+  subtitle?: string
+  img?: string
+  views?: number
+  createdAt?: string
+  category?: ArticleCategoryType[]
+  blocks?: ArticleBlock[]
 }

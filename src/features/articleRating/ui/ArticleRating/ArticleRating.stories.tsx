@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { Article } from '@/entities/Article'
 import ArticleRating from './ArticleRating'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
 const meta = {
   title: 'features/ArticleRating',
@@ -25,9 +27,17 @@ const article: Article = {
   subtitle: 'test story',
 }
 
-export const Light: Story = {
+export const Default: Story = {
   args: {
     articleId: '1',
   },
   decorators: [StoreDecorator({})],
+}
+
+
+export const DefaultRedesigned: Story = {
+  args: {
+    articleId: '1',
+  },
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }

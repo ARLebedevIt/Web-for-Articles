@@ -10,6 +10,9 @@ type ArticleCodeBlockComponentProps = {
 }
 
 export const ArticleCodeBlockComponent = memo(({ className, block }: ArticleCodeBlockComponentProps) => {
+  if (!block.code) {
+    return null
+  }
   return (
     <div className={classNames(cls.ArticleCodeBlockComponent, {}, [className])}>
       <Code text={block.code} />

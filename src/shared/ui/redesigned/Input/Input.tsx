@@ -51,7 +51,6 @@ export const Input = memo((props: InputType) => {
 
   useEffect(() => {
     if (autofocus) {
-      setIsFocused(true)
       ref.current?.focus()
     }
   }, [autofocus])
@@ -63,7 +62,6 @@ export const Input = memo((props: InputType) => {
   const onBlur = () => {
     setIsFocused(false)
   }
-
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value)
   }

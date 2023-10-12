@@ -9,15 +9,10 @@ import {
 } from '@/shared/ui/deprecated/Button'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text'
-import {
-  AppLink as AppLinkDeprecated,
-  AppLinkTheme,
-} from '@/shared/ui/deprecated/AppLink'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 import { NotificationButton } from '@/features/notificationsButton'
 import { AvatarDropdown } from '@/features/avatarDropdown'
 import cls from './Navbar.module.scss'
-import { getRouteArticleCreate } from '@/shared/const/router'
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features'
 import { Button } from '@/shared/ui/redesigned/Button'
 
@@ -26,7 +21,7 @@ interface NavbarProps {
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('navbar')
 
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false)
   const authData = useSelector(getUserAuthData)
@@ -58,11 +53,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
               title={t('Article app')}
             />
             <div className={cls.navigation}>
-              <AppLinkDeprecated
-                theme={AppLinkTheme.INVERTED}
-                to={getRouteArticleCreate()}>
-                {t('Создать статью')}
-              </AppLinkDeprecated>
               <HStack gap="16" className={cls.actions}>
                 <NotificationButton />
                 <AvatarDropdown />

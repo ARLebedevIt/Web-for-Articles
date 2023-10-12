@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Code } from './Code'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
 const meta = {
   title: 'shared/CodeRedesigned',
@@ -11,7 +14,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     text: `const meta = {
       title: 'shared/Code',
@@ -20,4 +23,5 @@ export const Primary: Story = {
     } satisfies Meta<typeof Code>
     `,
   },
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }

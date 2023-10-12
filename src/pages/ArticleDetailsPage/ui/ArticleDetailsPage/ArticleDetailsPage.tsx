@@ -16,7 +16,7 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import cls from './ArticleDetailsPage.module.scss'
 import { ArticleRating } from '@/features/articleRating'
 import { Card } from '@/shared/ui/deprecated/Card'
-import { ToggleFeatures, getFeatureFlag } from '@/shared/lib/features'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { StickyContentLayout } from '@/shared/layout/StickyLayout'
 import { DetailsContainer } from '../DetailsContainer/DetailsContainer'
 import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer'
@@ -29,12 +29,11 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { id } = useParams<{ id: string }>()
-  const { t } = useTranslation()
+  const { t } = useTranslation('article-details')
+
   if (!id) {
     return null
   }
-
-  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled')
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
@@ -44,16 +43,16 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
           <StickyContentLayout
             content={
               <Page className={classNames(cls.ArticleDetailsPage, {}, [])}>
-              <VStack gap="16" max>
-                <DetailsContainer />
-                <ArticleRating articleId={id} />
-                <ArticleRecommendationsList />
-                <ArticleDetailsComments id={id} />
-              </VStack>
-            </Page>
+                <VStack gap="16" max>
+                  <DetailsContainer />
+                  <ArticleRating articleId={id} />
+                  <ArticleRecommendationsList />
+                  <ArticleDetailsComments id={id} />
+                </VStack>
+              </Page>
             }
             right={<AdditionalInfoContainer />}
-           />
+          />
         }
         off={
           <Page className={classNames(cls.ArticleDetailsPage, {}, [])}>

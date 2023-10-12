@@ -6,31 +6,17 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import { ArticleBlockType } from '../../model/consts/consts'
 
 export const renderArticleBlock = (block: ArticleBlock) => {
+  const defaultProps = {
+    key: block.id,
+    className: cls.block,
+  }
   switch (block.type) {
     case ArticleBlockType.CODE:
-      return (
-        <ArticleCodeBlockComponent
-          key={block.id}
-          block={block}
-          className={cls.block}
-        />
-      )
+      return <ArticleCodeBlockComponent {...defaultProps} block={block} />
     case ArticleBlockType.IMAGE:
-      return (
-        <ArticleImageBlockComponent
-          key={block.id}
-          block={block}
-          className={cls.block}
-        />
-      )
+      return <ArticleImageBlockComponent {...defaultProps} block={block} />
     case ArticleBlockType.TEXT:
-      return (
-        <ArticleTextBlockComponent
-          key={block.id}
-          className={cls.block}
-          block={block}
-        />
-      )
+      return <ArticleTextBlockComponent {...defaultProps} block={block} />
     default:
       return null
   }

@@ -27,10 +27,19 @@
   position: absolute;
   right: 20px;
   bottom: 50%;
+
+  @media (width <= 990px) {
+    display: none;
+  }
 }
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+
+  .items {
+    padding-left: 0;
+    align-items: center;
+  }
 
   .switchers {
     flex-direction: column;

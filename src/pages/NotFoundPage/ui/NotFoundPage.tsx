@@ -15,7 +15,6 @@ const NotFoundPage: FC<NotFoundPageType> = ({ className }) => {
       data-testid="NotFoundPage"
       className={classNames(cls.NotFoundPage, {}, [className])}>
       {t('Страница не найдена')}
-
     </Page>
   )
 }

@@ -1,9 +1,24 @@
+<p align="center">
+  <img src="https://i.ibb.co/gDj4fM0/web-Articles-Project.png" alt="Project logo"  width="700">
+</p>
+
 ## Запуск проекта
 
 ```
 npm install - устанавливаем зависимости
 npm run start:dev или npm run start:dev:vite - запуск сервера + frontend проекта в dev режиме
 ```
+----
+
+## Учётная запись 
+### <p align='center'>Login: admin</p>
+### <p align='center'> Password: 123</p>
+
+----
+
+## О проекте
+
+На сайте Web Articles - вы можете читать статьи на различные темы, а так же редактировать их
 
 ----
 
@@ -44,7 +59,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 ## Работа с переводами
 
 В проекте используется библиотека i18next для работы с переводами.
-Файлы с переводами хранятся в public/locales.
+Файлы с переводами хранятся в public/locales и подгруждаются асинхронно.
 
 Документация i18next - [https://react.i18next.com/](https://react.i18next.com/)
 
@@ -64,7 +79,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ## Линтинг
 
-В проекте используется eslint для проверки typescript кода и stylelint для проверки файлов со стилями.
+В проекте используется eslint для статического анализа typescript кода и stylelint для проверки файлов со стилями. Для форматирования кода используется Prettier
 
 Также для строгого контроля главных архитектурных принципов
 используется собственный eslint plugin *eslint-plugin-my-fsd-helper*,
@@ -132,7 +147,6 @@ export const Outline: Story = {
 }
 ```
 
-
 ----
 
 ## Конфигурация проекта
@@ -172,7 +186,6 @@ export const Outline: Story = {
 
 ----
 
-
 ## Сущности (entities)
 
 - [Article](/src/entities/Article)
@@ -190,6 +203,8 @@ export const Outline: Story = {
 - [ArticleViewSelector](/src/features/ArticleViewSelector)
 - [articleRating](/src/features/articleRating)
 - [articleRecommendationsList](/src/features/articleRecommendationsList)
+- [articlePageGreeting](/src/features/articlePageGreeting)
+- [articleEdit](/src/features/articleEdit)
 - [AuthByUsername](/src/features/AuthByUsername)
 - [avatarDropdown](/src/features/avatarDropdown)
 - [editableProfileCard](/src/features/editableProfileCard)
@@ -199,3 +214,7 @@ export const Outline: Story = {
 - [ScrollPositionSaver](/src/features/ScrollPositionSaver)
 - [ThemeSwitcher](/src/features/ThemeSwitcher)
 
+----
+
+## Разработчик
+<p align='center'>https://github.com/ARLebedevIt</p>

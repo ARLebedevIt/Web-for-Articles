@@ -12,15 +12,6 @@ const recommendationsApi = rtkApi.injectEndpoints({
         },
       }),
     }),
-    // createArticleRecommendation: build.mutation({
-    //   query: limit => ({
-    //     url: '/articles',
-    //     params: {
-    //       _limit: limit,
-    //     },
-    //     method: 'PUT',
-    //   }),
-    // }),
   }),
 })
 

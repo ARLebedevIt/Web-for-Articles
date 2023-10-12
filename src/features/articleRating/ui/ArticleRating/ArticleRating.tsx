@@ -14,7 +14,7 @@ export type ArticleRatingProps = {
 }
 
 const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('article-details')
   const userData = useSelector(getUserAuthData)
   const { data, isLoading } = useGetArticleRating({ userId: userData?.id ?? '', articleId })
 

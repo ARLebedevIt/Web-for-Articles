@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Button } from './Button'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
-import { Button, ButtonSize, ButtonTheme } from '../../deprecated/Button'
 
 const meta = {
   title: 'shared/ButtonRedesigned',
@@ -14,107 +15,94 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     children: 'Text',
   },
+  decorators: [
+    StoreDecorator({}),
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
+    ThemeDecorator('redesigned'),
+  ],
 }
 
 export const Clear: Story = {
   args: {
     children: 'Text',
-    theme: ButtonTheme.CLEAR,
+    variant: 'clear',
   },
+  decorators: [
+    StoreDecorator({}),
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
+    ThemeDecorator('redesigned'),
+  ],
 }
 
 export const Outline: Story = {
   args: {
     children: 'Text',
-    theme: ButtonTheme.OUTLINE,
+    variant: 'outline',
   },
 }
 
-export const OutlineDark: Story = {
+export const Filled: Story = {
   args: {
     children: 'Text',
-    theme: ButtonTheme.OUTLINE,
+    variant: 'filled',
   },
-  decorators: [ThemeDecorator(Theme.DARK)],
+  decorators: [
+    StoreDecorator({}),
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
+    ThemeDecorator('redesigned'),
+  ],
 }
 
 export const OutlineSizeL: Story = {
   args: {
     children: 'Text',
-    theme: ButtonTheme.OUTLINE,
-    size: ButtonSize.L,
+    size: 'l',
   },
+  decorators: [
+    StoreDecorator({}),
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
+    ThemeDecorator('redesigned'),
+  ],
 }
 
 export const OutlineSizeXL: Story = {
   args: {
     children: 'Text',
-    theme: ButtonTheme.OUTLINE,
-    size: ButtonSize.XL,
+    size: 'xl',
   },
-}
-
-export const BackgroundTheme: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.BACKGROUND,
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-}
-
-export const BackgroundInverted: Story = {
-  args: {
-    children: 'Text',
-    theme: ButtonTheme.BACKGROUND_INVERTED,
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
+  decorators: [
+    StoreDecorator({}),
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
+    ThemeDecorator('redesigned'),
+  ],
 }
 
 export const Sqaure: Story = {
   args: {
     children: '>',
-    theme: ButtonTheme.BACKGROUND_INVERTED,
     square: true,
   },
-}
-
-export const SqaureSizeM: Story = {
-  args: {
-    children: '>',
-    theme: ButtonTheme.BACKGROUND_INVERTED,
-    square: true,
-    size: ButtonSize.M,
-  },
-}
-
-export const SqaureSizeL: Story = {
-  args: {
-    children: '>',
-    theme: ButtonTheme.BACKGROUND_INVERTED,
-    square: true,
-    size: ButtonSize.L,
-  },
-}
-
-export const SqaureSizeXL: Story = {
-  args: {
-    children: '>',
-    theme: ButtonTheme.BACKGROUND_INVERTED,
-    square: true,
-    size: ButtonSize.XL,
-  },
+  decorators: [
+    StoreDecorator({}),
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
+    ThemeDecorator('redesigned'),
+  ],
 }
 
 export const Disabled: Story = {
   args: {
     children: '>',
-    theme: ButtonTheme.OUTLINE,
     disabledBtn: true,
   },
+  decorators: [
+    StoreDecorator({}),
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
+    ThemeDecorator('redesigned'),
+  ],
 }

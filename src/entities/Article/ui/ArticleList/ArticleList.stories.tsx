@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
 import { ArticleBlockType, ArticleCategoryType, ArticleView } from '../../model/consts/consts'
 import { Article } from '../../model/types/article'
 import { ArticleList } from './ArticleList'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
 
 const meta = {
   title: 'entities/ArticleList',
@@ -55,27 +55,6 @@ const article: Article = {
   ],
 }
 
-export const Light: Story = {
-  args: {
-    articles: new Array(10).fill(article),
-  },
-  decorators: [ThemeDecorator(Theme.LIGHT)],
-}
-
-export const Dark: Story = {
-  args: {
-    articles: new Array(10).fill(article),
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-}
-
-export const Crimson: Story = {
-  args: {
-    articles: new Array(10).fill(article),
-  },
-  decorators: [ThemeDecorator(Theme.CRIMSON)],
-}
-
 export const ViewTemplate: Story = {
   args: {
     articles: new Array(10).fill(article),
@@ -90,18 +69,18 @@ export const ViewGrid: Story = {
   },
 }
 
-export const ViewTemplateLoading: Story = {
+export const ViewTemplateRedesigned: Story = {
   args: {
     articles: new Array(10).fill(article),
     view: ArticleView.TEMPLATE,
-    isLoading: true,
   },
+  decorators: [ThemeDecorator('redesigned'), FeatureFlagsDecorator({isAppRedesigned: true})],
 }
 
-export const ViewGridLoading: Story = {
+export const ViewGridRedesigned: Story = {
   args: {
     articles: new Array(10).fill(article),
-    isLoading: true,
     view: ArticleView.GRID,
   },
+  decorators: [ThemeDecorator('redesigned'), FeatureFlagsDecorator({isAppRedesigned: true})],
 }

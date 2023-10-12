@@ -24,7 +24,7 @@ const opitionList = [
 export const CountrySelect = memo(({
   className, value, onChange, readonly,
 }: CountrySelectType) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('profile')
 
   const onChangeHandler = useCallback((value?: string) => {
     onChange?.(value as Country)
@@ -36,9 +36,9 @@ export const CountrySelect = memo(({
     onChange: onChangeHandler,
     value,
     items: opitionList,
-    defaultValue: t('Страна: '),
+    defaultValue: `${t('Страна')}:`,
     direction: "top right" as const,
-    label: t('Страна: '),
+    label: `${t('Странa')}:`,
   }
 
   return (

@@ -20,7 +20,7 @@ type AvatarDropdownProps = {
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
   const { className } = props
   const dispatch = useAppDispatch()
-  const { t } = useTranslation()
+  const { t } = useTranslation('navbar')
   const isAdmin = useSelector(isUserAdmin)
   const isManager = useSelector(isUserManager)
   const authData = useSelector(getUserAuthData)

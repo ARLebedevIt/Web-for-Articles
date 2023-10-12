@@ -3,6 +3,8 @@ import { Article, ArticleCategoryType, ArticleBlockType } from '@/entities/Artic
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 import ArticleDetailsPage from './ArticleDetailsPage'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
 const meta = {
   title: 'pages/ArticleDetailsPage',
@@ -54,10 +56,18 @@ const article: Article = {
   ],
 }
 
-export const Primary: Story = {
+export const Default: Story = {
   decorators: [StoreDecorator({
     articleDetails: {
       data: article,
     },
   })],
+}
+
+export const DefaultRedesigned: Story = {
+  decorators: [StoreDecorator({
+    articleDetails: {
+      data: article,
+    },
+  }), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }

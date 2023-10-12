@@ -21,7 +21,7 @@ const opitionList = [
 export const CurrencySelect = memo(({
   className, value, onChange, readonly,
 }: CurrencySelectType) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('profile')
 
   const onChangeHandler = useCallback((value?: string) => {
     onChange?.(value as Currency)
@@ -33,9 +33,9 @@ export const CurrencySelect = memo(({
     onChange: onChangeHandler,
     value,
     items: opitionList,
-    defaultValue: t('Валюта: '),
+    defaultValue: `${t('Валюта')}:`,
     direction: "top right" as const,
-    label: t('Валюта: '),
+    label: `${t('Валюта')}:`,
   }
 
   return (

@@ -25,7 +25,7 @@ type ArticlesFiltersProps = {
 }
 
 export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('articles')
   const {
     className,
     onChangeCategory,

@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/shared/const/theme'
 import { Text } from './Text'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
 const meta = {
   title: 'shared/TextRedesigned',
@@ -13,11 +14,12 @@ export default meta
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     text: 'Text Example',
     title: 'Title Example',
   },
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }
 
 export const OnlyTitle: Story = {
@@ -30,28 +32,7 @@ export const OnylText: Story = {
   args: {
     text: 'Text only',
   },
-}
-
-export const PrimaryDark: Story = {
-  args: {
-    text: 'Text Example',
-    title: 'Title Example',
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-}
-
-export const OnlyTitleDark: Story = {
-  args: {
-    title: 'Title only',
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-}
-
-export const OnylTextDark: Story = {
-  args: {
-    text: 'Text only',
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }
 
 export const Error: Story = {
@@ -60,7 +41,7 @@ export const Error: Story = {
     title: 'Error',
     variant: 'error',
   },
-  decorators: [ThemeDecorator(Theme.DARK)],
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }
 
 export const WithSizeL: Story = {
@@ -69,6 +50,7 @@ export const WithSizeL: Story = {
     title: 'Lorem ipsum dolor sit amet consectetur.',
     size: 'l',
   },
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }
 
 export const WithSizeM: Story = {
@@ -77,6 +59,7 @@ export const WithSizeM: Story = {
     title: 'Lorem ipsum dolor sit amet consectetur.',
     size: 'm',
   },
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }
 
 export const WithSizeS: Story = {
@@ -85,4 +68,5 @@ export const WithSizeS: Story = {
     title: 'Lorem ipsum dolor sit amet consectetur.',
     size: 's',
   },
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }

@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from '../../../Button/Button'
 import { Dropdown } from './Dropdown'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
 const meta = {
   title: 'shared/DropdownRedesigned',
@@ -27,4 +30,5 @@ export const Default: Story = {
       },
     ],
   },
+  decorators: [StoreDecorator({}), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }

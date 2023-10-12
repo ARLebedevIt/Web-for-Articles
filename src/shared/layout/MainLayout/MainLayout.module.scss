@@ -4,6 +4,14 @@
   grid-template-areas: 
           'sidebar content rightbar';
   grid-template-columns: min-content 1fr 100px;
+
+  // @media (width <= 990px) {
+  //   grid-template-areas: 
+  //   'sidebar rightbar'
+  //   'sidebar content';
+  //   grid-template: 50px 1fr / auto 1fr; 
+  // }
+
 }
 
 .sidebar {
@@ -18,6 +26,11 @@
   justify-self: center;
   padding: 32px;
   width: 100%;
+  
+  // @media (width <= 990px) {
+  //   grid-column: 2/3;
+  //   grid-row: 2/3;
+  // }
 }
 
 .rightBar {
@@ -25,12 +38,22 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  // @media (width <= 990px) {
+  //   grid-row: 1/2;
+  //   grid-column: 2/3;
+  // }
 }
 
 .rightBar, .sidebar {
   position: sticky;
   top: 0;
   height: 100vh;
+  // @media (width <= 990px) {
+  //   .rightBar {
+  //     height: 100px;
+  //   }
+  // }
 }
 
 .toolbar {

@@ -37,7 +37,7 @@ const initialReducers: ReducersList = {
 }
 
 const LoginForm = memo(({ className, onSuccess }: LoginFormType) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('login')
   const dispatch = useAppDispatch()
   const username = useSelector(getLoginUserName)
   const password = useSelector(getLoginUserPassword)

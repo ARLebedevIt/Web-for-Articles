@@ -22,7 +22,7 @@ type ArticleDetailsCommentsProps = {
 
 export const ArticleDetailsComments = memo(
   ({ className, id }: ArticleDetailsCommentsProps) => {
-    const { t } = useTranslation()
+    const { t } = useTranslation('article-details')
     const comments = useSelector(getArticleComments.selectAll)
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
     const dispatch = useAppDispatch()

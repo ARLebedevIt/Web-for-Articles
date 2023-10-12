@@ -1,6 +1,4 @@
 import { useTranslation } from 'react-i18next'
-
-
 import { Currency, CurrencySelect } from '@/entities/Currency'
 import { Country, CountrySelect } from '@/entities/Country'
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
@@ -12,7 +10,7 @@ import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
 import { Text } from '@/shared/ui/redesigned/Text'
 
 export const ProfileCardRedesignedError = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('profile')
   return (
     <Card
       border='partial'
@@ -21,9 +19,9 @@ export const ProfileCardRedesignedError = () => {
       >
       <Text
         align='center'
-        title={t('Произошла ошибка при загрузке профиля')}
+        title={t('Профиль не найден')}
         variant='error'
-        text={t('Обновите страницу')}
+        text={t('Попробуйте обновить страницу')}
       />
     </Card>
   )
@@ -87,7 +85,7 @@ export const ProfileCardRedesigned = (props: ProfileCardType) => {
     onChangeCountry,
     onChangeCurrency,
   } = props
-  const { t } = useTranslation()
+  const { t } = useTranslation('profile')
   
   return (
     <Card
@@ -107,20 +105,20 @@ export const ProfileCardRedesigned = (props: ProfileCardType) => {
               onChange={onChangeFirstName}
               readOnly={readOnly}
               value={data?.first}
-              label={t('Ваше имя')}
+              label={t('Имя')}
             />
             <Input
               data-testid="ProfileCard.LastName"
               onChange={onChangeLastName}
               readOnly={readOnly}
               value={data?.lastname}
-              label={t('Ваша фамилия')}
+              label={t('Фамилия')}
             />
             <Input
               onChange={onChangeAge}
               readOnly={readOnly}
               value={data?.age}
-              label={t('Ваш возраст')}
+              label={t('Возраст')}
             />
             <Input
               onChange={onChangeCity}

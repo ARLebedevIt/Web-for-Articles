@@ -1,12 +1,11 @@
 import { Decorator } from '@storybook/react'
-import { Theme } from '@/shared/const/theme'
 // eslint-disable-next-line my-fsd-helper/layer-imports
 import { ThemeProvider } from '@/app/providers/ThemeProvider'
 
-export const ThemeDecorator = (theme: Theme): Decorator => (Story) => {
+export const ThemeDecorator = (redsigned: 'redesigned' | 'old' = 'old' ): Decorator => (Story) => {
   return (
-    <ThemeProvider initialTheme={theme}>
-      <div className={`app ${theme}`}>
+    <ThemeProvider>
+      <div className={`${redsigned === 'redesigned' ? 'app_redesigned' : 'app'}`}>
         <Story />
       </div>
     </ThemeProvider>

@@ -59,7 +59,7 @@ export const useSidebarItems = () => {
           on: () => ArticlesIcon,
           off: () => ArticlesIconDeprecated,
         }),
-        text: ' Статьи',
+        text: 'Статьи',
         authOnly: true,
       },
     )

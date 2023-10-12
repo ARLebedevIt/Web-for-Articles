@@ -1,4 +1,4 @@
-import React, { ReactNode, memo } from 'react'
+import React, { ReactNode } from 'react'
 import { Link, LinkProps } from 'react-router-dom'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './AppLink.module.scss'
@@ -18,7 +18,7 @@ interface AppLinkTypes extends LinkProps {
  * Компонент устарел, новые компоненты в папке redesigned
  * @deprecated
  */
-export const AppLink = memo((props: AppLinkTypes) => {
+export const AppLink = (props: AppLinkTypes) => {
   const {
     to, className, children, theme = AppLinkTheme.PRIMARY, ...otherProps
   } = props
@@ -31,4 +31,4 @@ export const AppLink = memo((props: AppLinkTypes) => {
       {children}
     </Link>
   )
-})
+}

@@ -3,6 +3,8 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { ArticleBlockType, ArticleCategoryType } from '../../model/consts/consts'
 import { Article } from '../../model/types/article'
 import { ArticleDetails } from './ArticleDetails'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
 const meta = {
   title: 'entities/ArticleDetails',
@@ -54,7 +56,7 @@ const article: Article = {
   ],
 }
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     id: '1',
   },
@@ -62,6 +64,13 @@ export const Primary: Story = {
     articleDetails: {
       data: article,
     },
+    user: {
+      authData: {
+        features: {
+          isAppRedesigned: true,
+        }
+      }
+    }
   })],
 }
 
@@ -85,4 +94,38 @@ export const Error: Story = {
       error: 'Some Error',
     },
   })],
+}
+
+
+export const DefaultRedesigned: Story = {
+  args: {
+    id: '1',
+  },
+  decorators: [StoreDecorator({
+    articleDetails: {
+      data: article,
+    },
+  }), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
+}
+
+export const LoadingRedesigned: Story = {
+  args: {
+    id: '1',
+  },
+  decorators: [StoreDecorator({
+    articleDetails: {
+      isLoading: true,
+    },
+  }), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
+}
+
+export const ErrorRedesigned: Story = {
+  args: {
+    id: '1',
+  },
+  decorators: [StoreDecorator({
+    articleDetails: {
+      error: 'Some Error',
+    },
+  }), FeatureFlagsDecorator({isAppRedesigned: true}), ThemeDecorator('redesigned')],
 }

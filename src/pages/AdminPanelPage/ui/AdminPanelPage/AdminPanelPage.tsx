@@ -10,11 +10,11 @@ interface AdminPanelPageProps {
 
 const AdminPanelPage = (props: AdminPanelPageProps) => {
   const { className } = props
-  const { t } = useTranslation()
+  const { t } = useTranslation('navbar')
 
   return (
     <Page data-testid="AdminPanelPage" className={classNames(cls.AdminPanelPage, {}, [className])}>
-      {t('Админ панель')}
+      {t('Админка')}
     </Page>
   )
 }

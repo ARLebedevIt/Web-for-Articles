@@ -15,11 +15,12 @@ type ArticleDetailsPageHeaderProps = {
 
 export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) => {
   const { className } = props
-  const { t } = useTranslation()
+  const { t } = useTranslation('article-details')
   const navigate = useNavigate()
   const article = useSelector(getArticleDetailsData)
 
   const canEdit = useSelector(getCanEditArticle)
+  
   const onBackToList = useCallback(() => {
     navigate(getRouteArticles())
   }, [navigate])

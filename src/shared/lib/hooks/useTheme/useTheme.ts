@@ -17,9 +17,6 @@ export function useTheme(): UseTheme {
         newTheme = Theme.LIGHT
         break
       case Theme.LIGHT:
-        newTheme = Theme.CRIMSON
-        break
-      case Theme.CRIMSON:
         newTheme = Theme.DARK
         break
       default:

@@ -1,3 +1,18 @@
-.NotificationList, .link  {
+.NotificationList, .link, .linkRedesigned  {
   width: 100%;
+}
+
+.linkRedesigned {
+  animation: 2s anim-link linear infinite alternate;
+}
+
+@keyframes anim-link {
+  0% {
+    text-shadow:  0 9px 3px var(--accent-redesigned);
+  }
+
+  100% {
+    text-shadow:  0 9px 3px var(--light-bg-redesigned);
+  }
+
 }

@@ -1,14 +1,16 @@
 import { useTranslation } from 'react-i18next'
 import { memo, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { ListBox } from '@/shared/ui/redesigned/Popups'
-import { getFeatureFlag, updateFeatureFlag } from '@/shared/lib/features'
+import { ListBox as ListBoxRedesigned } from '@/shared/ui/redesigned/Popups'
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups'
+import { ToggleFeatures, getFeatureFlag, toggleFeatures, updateFeatureFlag } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { getUserAuthData } from '@/entities/User'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
-import { useForceUpdate } from '@/shared/lib/render/forceUpdate'
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton'
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
 
 interface UiDesignSwitcherProps {
   className?: string
@@ -16,12 +18,11 @@ interface UiDesignSwitcherProps {
 
 export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
   const { className } = props
-  const { t } = useTranslation()
+  const { t } = useTranslation('settings')
   const dispatch = useAppDispatch()
   const isAppRedesigned = getFeatureFlag('isAppRedesigned')
   const authData = useSelector(getUserAuthData)
   const [isLoading, setIsLoading] = useState(false)
-  const forceUpdate = useForceUpdate()
   const items = [
     {
       content: t('Новый'),
@@ -32,6 +33,18 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
       value: 'old',
     },
   ]
+
+  const Skeleton = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated
+  })
+
+  const ListBox = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => ListBoxRedesigned,
+    off: () => ListBoxDeprecated
+  })
 
   const onChange = async (value: string) => {
     if (authData) {
@@ -46,12 +59,19 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
       ).unwrap()
     }
     setIsLoading(false)
-    forceUpdate()
   }
 
   return (
     <HStack gap='8'>
-      <Text text={t('Вариант интерфейса')} />
+      <ToggleFeatures
+      feature='isAppRedesigned'
+      on={
+        <Text text={t('Вариант интерфейса')} />
+      }
+      off={
+        <TextDeprecated text={t('Вариант интерфейса')} />
+      }
+      />
       {isLoading ? (
         <Skeleton width={100} height={40} />
       ) : (

@@ -1,7 +1,5 @@
-/* eslint-disable react/no-unstable-nested-components */
 import React, { HTMLAttributeAnchorTarget, memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { VirtuosoGrid } from 'react-virtuoso'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text'
 import { Article } from '../../model/types/article'
@@ -20,8 +18,6 @@ type ArticleListProps = {
   isLoading?: boolean
   view?: ArticleView
   target?: HTMLAttributeAnchorTarget
-  onLoadNextPart?: () => void
-  virtualized?: boolean
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -36,25 +32,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const {
     articles,
     className,
-    onLoadNextPart,
     target,
     isLoading,
     view = ArticleView.GRID,
-    virtualized = false,
   } = props
-  const { t } = useTranslation()
-
-  const Footer = memo(() => {
-    if (isLoading) {
-      return (
-        <div
-          className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-          {getSkeletons(view)}
-        </div>
-      )
-    }
-    return null
-  })
+  const { t } = useTranslation('articles')
 
   const renderArticle = (article: Article) => {
     return (
@@ -73,10 +55,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
         <ToggleFeatures
           feature="isAppRedesigned"
           on={
-          <Card border='partial' max>
-            <Text align='center' size="l" title={t('Статьи не найдены')} />
-          </Card>
-        }
+            <Card border="partial" max>
+              <Text align="center" size="l" title={t('Статьи не найдены')} />
+            </Card>
+          }
           off={
             <TextDeprecated size={TextSize.L} title={t('Статьи не найдены')} />
           }
@@ -99,34 +81,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
         </HStack>
       }
       off={
-        <div data-testid="ArticleList">
-          {virtualized ? (
-            <VirtuosoGrid
-              listClassName={classNames(cls.ArticleList, {}, [
-                className,
-                cls[view],
-              ])}
-              useWindowScroll
-              style={{ height: '100%' }}
-              data={articles}
-              components={{
-                Footer,
-                // { height, width, index }
-                ScrollSeekPlaceholder: () => <div>--</div>,
-              }}
-              // endReached={onLoadNextPart}
-              itemContent={(idx_, item) => renderArticle(item)}
-            />
-          ) : (
-            <div
-              className={classNames(cls.ArticleList, {}, [
-                className,
-                cls[view],
-              ])}>
-              {articles.length > 0 ? articles.map(renderArticle) : null}
-              {isLoading && getSkeletons(view)}
-            </div>
-          )}
+        <div
+          className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+          {articles.length > 0 ? articles.map(renderArticle) : null}
+          {isLoading && getSkeletons(view)}
         </div>
       }
     />
